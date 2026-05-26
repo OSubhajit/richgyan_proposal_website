@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rich Gyan India — Full-Stack Digital Rebuild Proposal 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0c1b3a;
+      --navy2:  #1a3a6b;
+      --orange: #e85d26;
+      --orange2:#f97d45;
+      --bg:     #ffffff;
+      --bg2:    #f4f6f9;
+      --border: #e0e4eb;
+      --t1:     #0c1b3a;
+      --t2:     #6b7385;
+      --green:  #2a7a4b;
+      --red:    #c0392b;
+      --amber:  #b45309;
+      --font-head: 'Syne', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --nav-h: 64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: #edf0f6;
+      color: var(--t1);
+      min-height: 100vh;
+    }
+
+    /* ───────────── NAV ───────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--nav-h);
+      background: rgba(12, 27, 58, 0.97);
+      backdrop-filter: blur(16px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-head);
+      font-weight: 700; font-size: 15px; color: #fff;
+      text-decoration: none; letter-spacing: 0.3px;
+    }
+    .nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); display: inline-block; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none;
+      transition: color 0.2s; font-weight: 400;
+    }
+    .nav-links a:hover { color: rgba(255,255,255,0.9); }
+    .nav-cta {
+      font-size: 12px; font-weight: 600; padding: 8px 18px; border-radius: 6px;
+      background: var(--orange); color: #fff; text-decoration: none;
+      transition: background 0.2s; font-family: var(--font-head);
+    }
+    .nav-cta:hover { background: #d04e1e; }
+    .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-mobile-toggle span { width: 22px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 2px; }
+
+    /* ───────────── PAGE WRAP ───────────── */
+    .page-wrap {
+      max-width: 800px;
+      margin: 2.5rem auto;
+      padding: 0 1rem 4rem;
+      display: flex; flex-direction: column; gap: 0;
+    }
+
+    .card {
+      background: var(--bg);
+      border-radius: 20px;
+      box-shadow: 0 2px 24px rgba(12,27,58,0.08);
+      overflow: hidden;
+    }
+    .card + .card { margin-top: 1.25rem; }
+    .card-inner { padding: 2rem 2rem; }
+
+    /* ───────────── HERO ───────────── */
+    .hero {
+      background: linear-gradient(140deg, #060e20 0%, #0c1b3a 50%, #1a3a6b 80%, #2a4f8a 100%);
+      border-radius: 20px;
+      padding: 3rem 2.5rem 2.5rem;
+      position: relative; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(12,27,58,0.28);
+    }
+    .hero-orb1 {
+      position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,93,38,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-orb2 {
+      position: absolute; bottom: -40px; left: -20px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,58,107,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-orb3 {
+      position: absolute; top: 40%; left: 40%;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,93,38,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 1rem;
+      font-family: var(--font-head); font-weight: 500;
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: 34px; font-weight: 800; color: #fff;
+      line-height: 1.2; margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+    }
+    .hero-title em { color: var(--orange2); font-style: normal; }
+    .hero-sub {
+      font-size: 15px; color: rgba(255,255,255,0.58); line-height: 1.65;
+      max-width: 520px; font-weight: 300;
+    }
+    .hero-meta {
+      display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem;
+    }
+    .hero-badge {
+      font-size: 12px; color: rgba(255,255,255,0.65);
+      display: flex; align-items: center; gap: 7px;
+      font-weight: 400;
+    }
+    .hero-badge i { font-size: 15px; color: var(--orange2); }
+
+    /* ───────────── SECTION LABEL ───────────── */
+    .section-label {
+      font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--t2); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-weight: 600;
+    }
+    .section-label i { font-size: 14px; color: var(--orange); }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+    /* ───────────── PROOF OF WORK / DEMO SECTION ───────────── */
+    .demo-section { padding: 2rem; }
+    .demo-intro {
+      font-size: 13.5px; color: var(--t2); line-height: 1.7; margin-bottom: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg, #e6f1fb, #f4f6f9);
+      border-radius: 10px; border-left: 3px solid var(--navy2);
+    }
+    .demo-intro strong { color: var(--navy); }
+    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .demo-card {
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.25s, transform 0.25s;
+      position: relative;
+    }
+    .demo-card:hover { box-shadow: 0 8px 32px rgba(12,27,58,0.14); transform: translateY(-3px); }
+    .demo-thumb {
+      height: 150px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+      position: relative; overflow: hidden;
+    }
+    .demo-thumb-1 { background: linear-gradient(135deg, #0c1b3a 0%, #1a3a6b 60%, #2563eb 100%); }
+    .demo-thumb-2 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); }
+    .demo-thumb-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .demo-thumb-icon {
+      position: relative; z-index: 1;
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .demo-thumb-icon-1 { background: rgba(232,93,38,0.9); color: #fff; }
+    .demo-thumb-icon-2 { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+    .demo-body { padding: 1.1rem 1.1rem 1rem; background: var(--bg); }
+    .demo-tag {
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--orange); font-family: var(--font-head); font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .demo-title { font-size: 14px; font-weight: 600; color: var(--t1); margin-bottom: 4px; font-family: var(--font-head); }
+    .demo-desc { font-size: 12px; color: var(--t2); line-height: 1.55; margin-bottom: 10px; }
+    .demo-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+    .demo-chip {
+      font-size: 10px; padding: 2px 8px; border-radius: 20px;
+      background: #e6f1fb; color: #185fa5; font-weight: 500;
+      border: 0.5px solid #b5d4f4;
+    }
+    .demo-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600; color: var(--navy2);
+      text-decoration: none; padding: 6px 12px; border-radius: 6px;
+      background: var(--bg2); border: 0.5px solid var(--border);
+      transition: all 0.2s; font-family: var(--font-head);
+    }
+    .demo-link:hover { background: var(--navy2); color: #fff; border-color: var(--navy2); }
+    .demo-live-badge {
+      position: absolute; top: 10px; right: 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      background: rgba(42, 122, 75, 0.9); color: #fff;
+      padding: 3px 8px; border-radius: 20px;
+      display: flex; align-items: center; gap: 5px;
+      font-family: var(--font-head);
+    }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #7ef5a0; animation: pulse 1.6s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+    /* ───────────── AUDIT / STACK ───────────── */
+    .stack-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 0.25rem; }
+    .stack-table th {
+      text-align: left; font-weight: 600; font-size: 10px;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--t2);
+      padding: 6px 10px; border-bottom: 0.5px solid var(--border);
+      font-family: var(--font-head);
+    }
+    .stack-table td { padding: 9px 10px; border-bottom: 0.5px solid var(--border); color: var(--t1); vertical-align: top; }
+    .stack-table tr:last-child td { border-bottom: none; }
+    .stack-table td:first-child { color: var(--t2); font-size: 12px; width: 120px; font-weight: 500; }
+    .stack-table td:last-child { font-size: 12px; color: var(--t2); }
+    .pill { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 20px; margin-right: 4px; font-weight: 600; font-family: var(--font-head); }
+    .pill-red   { background: #fcebeb; color: #a32d2d; }
+    .pill-amber { background: #faeeda; color: #854f0b; }
+    .pill-green { background: #eaf3de; color: #3b6d11; }
+    .pill-blue  { background: #e6f1fb; color: #185fa5; }
+
+    /* ───────────── PAIN POINTS ───────────── */
+    .audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .audit-card { background: var(--bg2); border-radius: 10px; padding: 1rem; border: 0.5px solid var(--border); }
+    .audit-card.bad  { border-left: 3px solid #e24b4a; }
+    .audit-card.warn { border-left: 3px solid #ef9f27; }
+    .audit-card.ok   { border-left: 3px solid #63991f; }
+    .audit-title { font-size: 12px; font-weight: 600; color: var(--t1); margin-bottom: 4px; font-family: var(--font-head); }
+    .audit-desc  { font-size: 12px; color: var(--t2); line-height: 1.55; }
+    .status-dot  { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+    .dot-bad  { background: #e24b4a; }
+    .dot-warn { background: #ef9f27; }
+    .dot-ok   { background: #63991f; }
+
+    /* ───────────── TABS ───────────── */
+    .proposal-tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .tab-btn {
+      font-size: 12px; padding: 7px 16px; border-radius: 20px;
+      border: 0.5px solid var(--border); background: var(--bg2); color: var(--t2);
+      cursor: pointer; transition: all 0.2s; font-family: var(--font-head);
+      font-weight: 600; letter-spacing: 0.2px;
+    }
+    .tab-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .tab-btn:hover:not(.active) { background: #e6f1fb; color: #185fa5; border-color: #b5d4f4; }
+
+    /* ───────────── PHASE BLOCKS ───────────── */
+    .phase-block { display: none; animation: fadeIn 0.3s ease; }
+    .phase-block.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ───────────── DELIVERABLE GRID ───────────── */
+    .deliverable-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
+    .deliv-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; padding: 1rem; }
+    .deliv-icon  { font-size: 22px; color: var(--navy2); margin-bottom: 8px; }
+    .deliv-title { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 5px; font-family: var(--font-head); }
+    .deliv-items { font-size: 12px; color: var(--t2); line-height: 1.75; }
+    .deliv-items li { list-style: none; padding-left: 14px; position: relative; }
+    .deliv-items li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-size: 11px; }
+
+    /* ───────────── TECH CHIPS ───────────── */
+    .tech-pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+    .tech-chip { font-size: 11px; padding: 4px 11px; border-radius: 20px; background: var(--bg2); border: 0.5px solid var(--border); color: var(--t1); font-weight: 500; }
+    .tech-chip.highlight { background: #e6f1fb; border-color: #b5d4f4; color: #185fa5; font-weight: 600; }
+
+    /* ───────────── PRICING ───────────── */
+    .pricing-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; }
+    .pricing-row:last-child { border: none; padding-top: 16px; font-size: 15px; font-weight: 600; }
+    .price-label { color: var(--t2); }
+    .price-val   { color: var(--t1); font-weight: 600; font-family: var(--font-head); }
+    .price-val.total { color: var(--navy2); font-size: 18px; }
+
+    /* ───────────── TIMELINE ───────────── */
+    .tl-item { display: flex; gap: 14px; margin-bottom: 1.1rem; align-items: flex-start; }
+    .tl-num {
+      width: 30px; height: 30px; border-radius: 50%; background: var(--navy);
+      color: #fff; font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px; font-family: var(--font-head);
+    }
+    .tl-title { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 2px; font-family: var(--font-head); }
+    .tl-desc  { font-size: 12px; color: var(--t2); line-height: 1.55; }
+    .tl-weeks { font-size: 11px; color: var(--orange); font-weight: 600; margin-top: 3px; font-family: var(--font-head); }
+
+    /* ───────────── COMPARE BARS ───────────── */
+    .compare-bar { margin: 1.5rem 0 0; }
+    .compare-row  { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
+    .compare-label { width: 130px; color: var(--t2); flex-shrink: 0; }
+    .bar-track { flex: 1; height: 6px; background: #e8eaf0; border-radius: 3px; overflow: hidden; }
+    .bar-fill-before { height: 100%; border-radius: 3px; background: #e24b4a; }
+    .bar-fill-after  { height: 100%; border-radius: 3px; background: #63991f; }
+    .bar-legend { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 11px; font-weight: 500; }
+    .bar-legend span { display: flex; align-items: center; gap: 5px; }
+    .leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    /* ───────────── FLAGS ───────────── */
+    .flag-list { margin-bottom: 1.5rem; }
+    .flag-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; font-size: 13px; }
+    .flag-item:last-child { border: none; }
+    .flag-icon { color: var(--orange); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .flag-text { color: var(--t1); line-height: 1.55; font-weight: 500; }
+    .flag-text span { color: var(--t2); display: block; font-size: 12px; margin-top: 2px; font-weight: 400; }
+
+    /* ───────────── CTA ───────────── */
+    .cta-bar {
+      background: linear-gradient(135deg, #060e20, #0c1b3a, #1a3a6b);
+      border-radius: 16px; padding: 1.75rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .cta-bar::before {
+      content: '';
+      position: absolute; top: -30px; right: -30px;
+      width: 160px; height: 160px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,93,38,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-text { color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.55; position: relative; }
+    .cta-text strong { color: #fff; font-size: 16px; display: block; margin-bottom: 4px; font-family: var(--font-head); font-weight: 700; }
+    .cta-btn {
+      background: var(--orange); color: #fff; border: none;
+      padding: 11px 24px; border-radius: 8px; font-size: 13px;
+      font-weight: 700; cursor: pointer; white-space: nowrap;
+      font-family: var(--font-head); transition: background 0.2s;
+      position: relative; letter-spacing: 0.2px;
+    }
+    .cta-btn:hover { background: #d04e1e; }
+
+    /* ───────────── FOOTER ───────────── */
+    footer {
+      background: var(--navy);
+      padding: 2rem;
+      border-radius: 20px;
+      margin-top: 1.25rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand { font-family: var(--font-head); font-weight: 700; color: rgba(255,255,255,0.85); font-size: 14px; }
+    .footer-brand span { color: var(--orange2); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); width: 100%; margin-top: 0.5rem; }
+
+    /* ───────────── INFO BANNER ───────────── */
+    .info-banner {
+      background: linear-gradient(135deg, #e6f1fb, #eef5fd);
+      border-radius: 10px; padding: 1rem 1.25rem;
+      font-size: 12px; color: #185fa5; line-height: 1.6;
+      margin-bottom: 1rem; border: 0.5px solid #b5d4f4;
+    }
+    .info-banner strong { display: block; margin-bottom: 4px; font-size: 13px; font-family: var(--font-head); }
+    .payment-note {
+      background: #e6f1fb; border-radius: 10px; padding: 1rem 1.25rem;
+      font-size: 12px; color: #185fa5; line-height: 1.6; margin-top: 1rem;
+      border: 0.5px solid #b5d4f4;
+    }
+    .payment-note strong { display: block; margin-bottom: 4px; font-size: 13px; font-family: var(--font-head); }
+
+    /* ───────────── RESPONSIVE ───────────── */
+    @media (max-width: 600px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .hero { padding: 2rem 1.5rem; }
+      .hero-title { font-size: 24px; }
+      .card-inner { padding: 1.5rem 1.25rem; }
+      .demo-section { padding: 1.5rem 1.25rem; }
+      .demo-grid { grid-template-columns: 1fr; }
+      .audit-grid, .deliverable-grid { grid-template-columns: 1fr; }
+      .cta-bar { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 1rem; }
+      .hero-meta { gap: 1rem; }
+    }
+    @media (max-width: 420px) {
+      .hero-title { font-size: 20px; }
+      .proposal-tabs { gap: 4px; }
+      .tab-btn { font-size: 11px; padding: 5px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─────── NAV ─────── -->
+<nav>
+  <a class="nav-brand" href="#top">
+    <span class="nav-brand-dot"></span>
+    Subhajit · Dev
+  </a>
+  <ul class="nav-links">
+    <li><a href="#proof-of-work">Live Demos</a></li>
+    <li><a href="#audit">Current Stack</a></li>
+    <li><a href="#scope">Proposal</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:?subject=Rich%20Gyan%20India%20-%20Discovery%20Call%20Request">Book a Call</a>
+  <div class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page-wrap" id="top">
+
+  <!-- ─────── HERO ─────── -->
+  <div class="hero">
+    <div class="hero-orb1"></div>
+    <div class="hero-orb2"></div>
+    <div class="hero-orb3"></div>
+    <div class="hero-eyebrow">Technology Modernization Proposal · 2026</div>
+    <div class="hero-title">Rich Gyan India —<br><em>Full-Stack Digital Rebuild</em></div>
+    <div class="hero-sub">A comprehensive proposal to transform richgyan.com into a high-performance, visually immersive, and enterprise-grade educational platform for 10,000+ students across India.</div>
+    <div class="hero-meta">
+      <div class="hero-badge"><i class="ti ti-building"></i> Richgyan India Pvt. Ltd.</div>
+      <div class="hero-badge"><i class="ti ti-calendar"></i> Proposal: 2026</div>
+      <div class="hero-badge"><i class="ti ti-clock"></i> Est. delivery: 16–20 weeks</div>
+      <div class="hero-badge"><i class="ti ti-map-pin"></i> Northeast India</div>
+    </div>
+  </div>
+
+  <!-- ─────── PROOF OF WORK ─────── -->
+  <div class="card" id="proof-of-work">
+    <div class="demo-section">
+      <div class="section-label"><i class="ti ti-device-desktop-check"></i> Already built — live demos</div>
+      <div class="demo-intro">
+        <strong>These aren't mockups.</strong> Before pitching this proposal, I already built two working prototypes for real institutions in Northeast India — deployed live on the web, fully functional, and ready for you to explore right now. This is the caliber of work you're investing in.
+      </div>
+      <div class="demo-grid">
+
+        <!-- Demo 1 -->
+        <div class="demo-card">
+          <div class="demo-thumb demo-thumb-1">
+            <div class="demo-thumb-grid"></div>
+            <div class="demo-thumb-icon demo-thumb-icon-1">
+              <i class="ti ti-school"></i>
+            </div>
+            <div class="demo-live-badge"><span class="live-dot"></span> LIVE</div>
+          </div>
+          <div class="demo-body">
+            <div class="demo-tag">Smart Campus Suite</div>
+            <div class="demo-title">Alloy Academy Goalpara</div>
+            <div class="demo-desc">Full school management system with face-recognition attendance, JWT auth, SMS/WhatsApp notifications, and PDF report generation. Built with React + Flask + MongoDB.</div>
+            <div class="demo-tech">
+              <span class="demo-chip">React</span>
+              <span class="demo-chip">Flask</span>
+              <span class="demo-chip">MongoDB</span>
+              <span class="demo-chip">DeepFace AI</span>
+              <span class="demo-chip">Twilio</span>
+            </div>
+            <a class="demo-link" href="https://alloy-academy-goalpara-prototype.onrender.com" target="_blank" rel="noopener">
+              <i class="ti ti-external-link"></i> View Live Demo
+            </a>
+          </div>
+        </div>
+
+        <!-- Demo 2 -->
+        <div class="demo-card">
+          <div class="demo-thumb demo-thumb-2">
+            <div class="demo-thumb-grid"></div>
+            <div class="demo-thumb-icon demo-thumb-icon-2">
+              <i class="ti ti-books"></i>
+            </div>
+            <div class="demo-live-badge"><span class="live-dot"></span> LIVE</div>
+          </div>
+          <div class="demo-body">
+            <div class="demo-tag">School Management System</div>
+            <div class="demo-title">English School Prototype</div>
+            <div class="demo-desc">A full-featured English medium school portal with student management, attendance tracking, exam records, and parent-facing dashboards — designed for Northeast India institutions.</div>
+            <div class="demo-tech">
+              <span class="demo-chip">React</span>
+              <span class="demo-chip">Flask</span>
+              <span class="demo-chip">MongoDB</span>
+              <span class="demo-chip">JWT Auth</span>
+              <span class="demo-chip">ReportLab</span>
+            </div>
+            <a class="demo-link" href="https://englishschoolprototype.onrender.com" target="_blank" rel="noopener">
+              <i class="ti ti-external-link"></i> View Live Demo
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────── CURRENT STACK ─────── -->
+  <div class="card" id="audit">
+    <div class="card-inner">
+      <div class="section-label"><i class="ti ti-zoom-scan"></i> Current tech stack (reverse engineered)</div>
+      <table class="stack-table">
+        <thead>
+          <tr><th>Layer</th><th>Detected Technology</th><th>Assessment</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>CMS</td><td>WordPress + Elementor 3.30.2</td><td><span class="pill pill-amber">Outdated</span> Confirmed via meta-generator tag</td></tr>
+          <tr><td>E-commerce</td><td>WooCommerce</td><td><span class="pill pill-amber">Fragile</span> /basket/, /product/student-registraion/ URL patterns</td></tr>
+          <tr><td>Auth</td><td>WordPress native (no 2FA, no OTP)</td><td><span class="pill pill-red">Risky</span> No multi-factor, exposed /my-account/</td></tr>
+          <tr><td>LMS</td><td>LearnDash or free plugin (likely)</td><td><span class="pill pill-amber">Unclear</span> /study-materials/, /download/ routes</td></tr>
+          <tr><td>Certificates</td><td>Static custom page</td><td><span class="pill pill-red">No DB</span> No dynamic verification system detected</td></tr>
+          <tr><td>Hosting</td><td>Shared/VPS (inferred)</td><td><span class="pill pill-amber">Limited</span> Slow response times observed</td></tr>
+          <tr><td>API layer</td><td>None detected</td><td><span class="pill pill-red">Monolithic</span> Everything coupled to WP</td></tr>
+          <tr><td>Mobile app</td><td>White-labeled 3rd party (co.sheldon.siupl)</td><td><span class="pill pill-red">Not owned</span> No brand control, no custom logic</td></tr>
+          <tr><td>Domains</td><td>richgyan.com + richgyan.in (separate installs)</td><td><span class="pill pill-red">Duplicated</span> Inconsistent content, SEO split</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─────── PAIN POINTS ─────── -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="section-label"><i class="ti ti-alert-triangle"></i> Current platform pain points</div>
+      <div class="audit-grid">
+        <div class="audit-card bad">
+          <div class="audit-title"><span class="status-dot dot-bad"></span>No real certificate verification</div>
+          <div class="audit-desc">Certificates are visually present but have no live database lookup — easily forged, zero employer trust signal.</div>
+        </div>
+        <div class="audit-card bad">
+          <div class="audit-title"><span class="status-dot dot-bad"></span>Zero mobile app ownership</div>
+          <div class="audit-desc">White-labeled app on a 3rd party's infra. If that vendor closes, your students lose access overnight.</div>
+        </div>
+        <div class="audit-card bad">
+          <div class="audit-title"><span class="status-dot dot-bad"></span>No API layer / headless design</div>
+          <div class="audit-desc">Everything is tightly coupled to WordPress. Scaling, integrations, or any rebuild requires touching the entire monolith.</div>
+        </div>
+        <div class="audit-card warn">
+          <div class="audit-title"><span class="status-dot dot-warn"></span>Weak authentication</div>
+          <div class="audit-desc">No OTP, no 2FA. Student accounts and franchise dashboards are protected by passwords alone.</div>
+        </div>
+        <div class="audit-card warn">
+          <div class="audit-title"><span class="status-dot dot-warn"></span>Duplicate domain problem</div>
+          <div class="audit-desc">richgyan.com and richgyan.in run independently, splitting SEO authority and confusing users.</div>
+        </div>
+        <div class="audit-card ok">
+          <div class="audit-title"><span class="status-dot dot-ok"></span>SSL present, MSME registered</div>
+          <div class="audit-desc">Basic security and legal compliance are in place — a solid foundation to build on.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────── SCOPE / TABS ─────── -->
+  <div class="card" id="scope">
+    <div class="card-inner">
+      <div class="section-label"><i class="ti ti-file-description"></i> Proposal scope</div>
+      <div class="proposal-tabs">
+        <button class="tab-btn active" onclick="showPhase('frontend', this)">Frontend</button>
+        <button class="tab-btn" onclick="showPhase('backend', this)">Backend</button>
+        <button class="tab-btn" onclick="showPhase('mobile', this)">Mobile app</button>
+        <button class="tab-btn" onclick="showPhase('pricing', this)">Investment</button>
+        <button class="tab-btn" onclick="showPhase('timeline', this)">Timeline</button>
+      </div>
+
+      <!-- Frontend -->
+      <div id="phase-frontend" class="phase-block active">
+        <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-wand"></i> Frontend redesign — immersive &amp; modern</div>
+        <div class="tech-pill-row">
+          <div class="tech-chip highlight">Next.js 14</div>
+          <div class="tech-chip highlight">Three.js / WebGL</div>
+          <div class="tech-chip highlight">GSAP ScrollTrigger</div>
+          <div class="tech-chip highlight">Framer Motion</div>
+          <div class="tech-chip">Tailwind CSS</div>
+          <div class="tech-chip">React 18</div>
+          <div class="tech-chip">Lottie animations</div>
+          <div class="tech-chip">Responsive (all devices)</div>
+          <div class="tech-chip">PWA-ready</div>
+        </div>
+        <div class="deliverable-grid">
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-cube-3d-sphere"></i></div>
+            <div class="deliv-title">3D immersive hero section</div>
+            <ul class="deliv-items">
+              <li>Three.js particle system background</li>
+              <li>Interactive 3D globe showing center locations</li>
+              <li>Scroll-driven 3D depth reveal</li>
+              <li>GPU-accelerated, mobile-safe fallback</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-photo-spark"></i></div>
+            <div class="deliv-title">Dynamic image presentation</div>
+            <ul class="deliv-items">
+              <li>3D card flip gallery with parallax depth</li>
+              <li>Hover-reveal 3D tilt on every image card</li>
+              <li>Scroll-driven image stagger reveals</li>
+              <li>Lightbox with 3D zoom transition</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-device-mobile"></i></div>
+            <div class="deliv-title">Device-universal layout</div>
+            <ul class="deliv-items">
+              <li>Android, iOS, Windows, macOS tested</li>
+              <li>Adaptive 3D: heavy WebGL on desktop, CSS 3D on mobile</li>
+              <li>Touch-first gestures (swipe, pinch, drag)</li>
+              <li>120fps scroll performance target</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-certificate"></i></div>
+            <div class="deliv-title">Interactive certificate portal</div>
+            <ul class="deliv-items">
+              <li>Live DB-backed certificate lookup</li>
+              <li>3D animated certificate reveal on verify</li>
+              <li>QR code generation per certificate</li>
+              <li>Employer-facing verification page</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-layout-dashboard"></i></div>
+            <div class="deliv-title">Franchise dashboard UI</div>
+            <ul class="deliv-items">
+              <li>Real-time center analytics panel</li>
+              <li>Student enrollment flow (guided)</li>
+              <li>Commission &amp; payment tracking</li>
+              <li>Dark mode, print-ready reports</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-brand-speedtest"></i></div>
+            <div class="deliv-title">Performance &amp; SEO</div>
+            <ul class="deliv-items">
+              <li>Core Web Vitals: LCP &lt; 2.5s target</li>
+              <li>SSR + ISR for SEO-critical pages</li>
+              <li>Image optimization (WebP, AVIF, lazy)</li>
+              <li>Single canonical domain strategy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="compare-bar">
+          <div style="font-size:12px;font-weight:600;color:var(--t1);margin-bottom:8px;font-family:var(--font-head)">Before vs after — projected user experience metrics</div>
+          <div class="bar-legend">
+            <span><span class="leg-dot" style="background:#e24b4a"></span>Current</span>
+            <span><span class="leg-dot" style="background:#63991f"></span>Proposed</span>
+          </div>
+          <div class="compare-row"><div class="compare-label">Page load speed</div><div class="bar-track"><div class="bar-fill-before" style="width:30%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:85%"></div></div></div>
+          <div class="compare-row"><div class="compare-label">Mobile experience</div><div class="bar-track"><div class="bar-fill-before" style="width:25%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:90%"></div></div></div>
+          <div class="compare-row"><div class="compare-label">Visual appeal</div><div class="bar-track"><div class="bar-fill-before" style="width:20%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:95%"></div></div></div>
+          <div class="compare-row"><div class="compare-label">Certificate trust</div><div class="bar-track"><div class="bar-fill-before" style="width:10%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:88%"></div></div></div>
+          <div class="compare-row"><div class="compare-label">SEO authority</div><div class="bar-track"><div class="bar-fill-before" style="width:35%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:80%"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div id="phase-backend" class="phase-block">
+        <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-server-2"></i> Backend rebuild — secure, scalable, API-first</div>
+        <div class="tech-pill-row">
+          <div class="tech-chip highlight">Node.js + Express / Fastify</div>
+          <div class="tech-chip highlight">PostgreSQL</div>
+          <div class="tech-chip highlight">Redis caching</div>
+          <div class="tech-chip highlight">REST + GraphQL API</div>
+          <div class="tech-chip">JWT + OTP auth</div>
+          <div class="tech-chip">AWS S3 / Cloudflare R2</div>
+          <div class="tech-chip">Docker + CI/CD</div>
+          <div class="tech-chip">Razorpay integration</div>
+        </div>
+        <div class="deliverable-grid">
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-shield-lock"></i></div>
+            <div class="deliv-title">Secure auth system</div>
+            <ul class="deliv-items">
+              <li>OTP login (Aadhaar-linked option)</li>
+              <li>Role-based access: student / franchise / admin</li>
+              <li>JWT with refresh token rotation</li>
+              <li>Rate limiting &amp; brute-force protection</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-database"></i></div>
+            <div class="deliv-title">Certificate DB system</div>
+            <ul class="deliv-items">
+              <li>Unique cert IDs linked to student records</li>
+              <li>Tamper-evident hash per certificate</li>
+              <li>Employer public API for batch verification</li>
+              <li>PDF generation with digital signature</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-api"></i></div>
+            <div class="deliv-title">Headless API layer</div>
+            <ul class="deliv-items">
+              <li>RESTful API for all site content</li>
+              <li>Franchise management endpoints</li>
+              <li>Course enrollment &amp; progress tracking</li>
+              <li>Webhooks for payment events</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-cash"></i></div>
+            <div class="deliv-title">Payment &amp; franchise billing</div>
+            <ul class="deliv-items">
+              <li>Razorpay / PayU integration (INR)</li>
+              <li>Franchise fee collection + receipts</li>
+              <li>Student fee installment support</li>
+              <li>GST-compliant invoicing</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-topology-star-ring-3"></i></div>
+            <div class="deliv-title">Franchise network management</div>
+            <ul class="deliv-items">
+              <li>Center registration &amp; onboarding flow</li>
+              <li>Territory exclusivity enforcement (7km rule)</li>
+              <li>Center performance dashboard</li>
+              <li>Bulk SMS/email to franchisees</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-activity"></i></div>
+            <div class="deliv-title">Infrastructure &amp; monitoring</div>
+            <ul class="deliv-items">
+              <li>Docker containerized deployment</li>
+              <li>99.9% uptime SLA design</li>
+              <li>Automated backups (daily)</li>
+              <li>Error tracking + performance monitoring</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div id="phase-mobile" class="phase-block">
+        <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-device-mobile"></i> Custom mobile app — owned, branded, powerful</div>
+        <div class="tech-pill-row">
+          <div class="tech-chip highlight">React Native</div>
+          <div class="tech-chip highlight">Expo (managed workflow)</div>
+          <div class="tech-chip">Android + iOS (single codebase)</div>
+          <div class="tech-chip">Offline-first</div>
+          <div class="tech-chip">Push notifications</div>
+          <div class="tech-chip">In-app certificate view</div>
+        </div>
+        <div class="deliverable-grid">
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-books"></i></div>
+            <div class="deliv-title">Student learning app</div>
+            <ul class="deliv-items">
+              <li>Course videos, PDFs, quizzes offline-ready</li>
+              <li>Progress tracking with badges</li>
+              <li>In-app certificate download &amp; share</li>
+              <li>Push alerts for classes &amp; exams</li>
+            </ul>
+          </div>
+          <div class="deliv-card">
+            <div class="deliv-icon"><i class="ti ti-building-store"></i></div>
+            <div class="deliv-title">Franchise center app</div>
+            <ul class="deliv-items">
+              <li>Student enrollment on-the-spot</li>
+              <li>Fee collection with UPI/QR</li>
+              <li>Attendance marking</li>
+              <li>Real-time support chat with HQ</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flag-list">
+          <div class="flag-item">
+            <i class="ti ti-alert-circle flag-icon"></i>
+            <div class="flag-text">Replace co.sheldon.siupl white-label entirely<span>Your current app is on a 3rd-party vendor's infra. This migration gives you full data ownership, Play Store &amp; App Store listing under your brand name, and zero vendor lock-in.</span></div>
+          </div>
+          <div class="flag-item">
+            <i class="ti ti-check flag-icon" style="color:#63991f"></i>
+            <div class="flag-text">Single React Native codebase = lower long-term maintenance cost<span>One dev team maintains both Android and iOS. No separate Swift/Kotlin builds required.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div id="phase-pricing" class="phase-block">
+        <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-receipt"></i> Investment breakdown</div>
+        <div class="info-banner"><strong>Indicative pricing only</strong>All figures in Indian Rupees (₹). Final pricing is subject to a scope confirmation call — modules can be engaged individually if full budget is not immediately available.</div>
+        <div class="pricing-row"><span class="price-label">Frontend redesign (Next.js + Three.js + animations)</span><span class="price-val">₹1,80,000 – ₹2,50,000</span></div>
+        <div class="pricing-row"><span class="price-label">Backend rebuild (API + DB + auth + cert system)</span><span class="price-val">₹2,00,000 – ₹3,00,000</span></div>
+        <div class="pricing-row"><span class="price-label">Custom mobile app (React Native, Android + iOS)</span><span class="price-val">₹1,50,000 – ₹2,20,000</span></div>
+        <div class="pricing-row"><span class="price-label">Franchise portal + dashboard</span><span class="price-val">₹80,000 – ₹1,20,000</span></div>
+        <div class="pricing-row"><span class="price-label">Payment integration (Razorpay/PayU + GST invoicing)</span><span class="price-val">₹40,000 – ₹60,000</span></div>
+        <div class="pricing-row"><span class="price-label">Domain consolidation + SEO migration</span><span class="price-val">₹20,000 – ₹35,000</span></div>
+        <div class="pricing-row"><span class="price-label">Server setup, CI/CD, monitoring (1 yr)</span><span class="price-val">₹60,000 – ₹90,000</span></div>
+        <div class="pricing-row"><span class="price-label price-val" style="font-size:15px">Total (indicative range)</span><span class="price-val total">₹7,30,000 – ₹10,75,000</span></div>
+        <div class="payment-note">
+          <strong>Phased payment structure available</strong>
+          30% on kickoff · 30% at mid-delivery milestone · 30% on launch · 10% post-launch buffer.
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div id="phase-timeline" class="phase-block">
+        <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-timeline"></i> Delivery timeline (16–20 weeks)</div>
+        <div class="tl-item">
+          <div class="tl-num">1</div>
+          <div class="tl-content">
+            <div class="tl-title">Discovery &amp; architecture</div>
+            <div class="tl-desc">Deep audit of current site, data migration plan, domain consolidation strategy, design direction workshop</div>
+            <div class="tl-weeks">Weeks 1–2</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">2</div>
+          <div class="tl-content">
+            <div class="tl-title">Backend API + database build</div>
+            <div class="tl-desc">PostgreSQL schema, REST/GraphQL API, authentication (OTP + JWT), certificate DB, payment integration</div>
+            <div class="tl-weeks">Weeks 3–7</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">3</div>
+          <div class="tl-content">
+            <div class="tl-title">Frontend development</div>
+            <div class="tl-desc">Next.js site, Three.js hero, 3D image gallery, all page builds, franchise dashboard, certificate portal</div>
+            <div class="tl-weeks">Weeks 5–12 (parallel with backend)</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">4</div>
+          <div class="tl-content">
+            <div class="tl-title">Mobile app build</div>
+            <div class="tl-desc">React Native app (student + franchise), Android and iOS testing, Play Store &amp; App Store submission</div>
+            <div class="tl-weeks">Weeks 8–15</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">5</div>
+          <div class="tl-content">
+            <div class="tl-title">Integration, QA &amp; launch</div>
+            <div class="tl-desc">Full system integration test, cross-device QA, content migration, DNS cutover, go-live monitoring</div>
+            <div class="tl-weeks">Weeks 16–20</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-bar" id="contact">
+        <div class="cta-text">
+          <strong>Ready to begin?</strong>
+          Schedule a 30-minute scoping call to confirm priorities and finalize a phase-wise plan.
+        </div>
+        <button class="cta-btn" onclick="window.location.href='mailto:?subject=Rich%20Gyan%20India%20-%20Discovery%20Call%20Request'">Draft follow-up email ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────── FOOTER ─────── -->
+  <footer>
+    <div>
+      <div class="footer-brand">Subhajit · <span>Dev</span></div>
+      <div class="footer-copy">Full-Stack Developer · Assam, India · Building AI-powered SaaS for Northeast India</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://osubhajit.hashnode.dev" target="_blank">Blog</a></li>
+      <li><a href="https://github.com/OSubhajit" target="_blank">GitHub</a></li>
+      <li><a href="https://alloy-academy-goalpara-prototype.onrender.com" target="_blank">Demo 1</a></li>
+      <li><a href="https://englishschoolprototype.onrender.com" target="_blank">Demo 2</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  function showPhase(id, btn) {
+    document.querySelectorAll('.phase-block').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('phase-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleMobileMenu() {
+    // Simple mobile scroll to contact for now
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
