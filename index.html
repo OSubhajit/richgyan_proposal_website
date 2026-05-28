@@ -1347,6 +1347,21 @@
         </div>
         <div class="form-row">
           <div class="form-group">
+            <label class="form-label">Authorized signatory — full name <span class="tag-crit">CRITICAL</span> <span class="req">*</span></label>
+            <input type="text" id="f_signatory_name" placeholder="Full name as it will appear on certificates &amp; contracts" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Signatory designation <span class="tag-crit">CRITICAL</span></label>
+            <input type="text" id="f_signatory_desig" placeholder="e.g. Managing Director, CEO" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Director / Owner personal Google account email <span class="tag-high">HIGH</span></label>
+          <input type="email" id="f_director_email" placeholder="personal Gmail used to create Play Console &amp; Apple Dev account" />
+          <div class="form-hint">Needed for Google Play Console (₹1,750 fee) and Apple Developer Program. Must be the director's personal Google account — not a business alias.</div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
             <label class="form-label">Founding year <span class="tag-high">HIGH</span></label>
             <input type="text" id="f_year" placeholder="e.g. 2016" />
           </div>
@@ -1425,7 +1440,36 @@
           <div class="form-hint">Printed on certificate PDFs below the seal.</div>
         </div>
 
+        <div class="form-divider">Files to Send via Email</div>
+        <div style="background:var(--blue-bg);border:1px solid #BFDBFE;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:13px;color:var(--navy);line-height:1.7;">
+          <strong style="font-family:var(--font-h);display:flex;align-items:center;gap:7px;margin-bottom:6px;"><i class="ti ti-mail" style="font-size:15px;color:var(--blue)"></i> Send files to: <span style="color:var(--orange)">subhajitsarkar0708@gmail.com</span></strong>
+          Since forms cannot accept file uploads, please email the following assets directly:<br>
+          <span style="display:inline-block;margin-top:6px;color:var(--t2)">
+            📎 <strong>Logo file</strong> — SVG preferred, or highest-res PNG you have (letterhead quality, not from website)<br>
+            📎 <strong>Institute official seal</strong> — PNG with transparent background if possible<br>
+            📎 <strong>Authorized signatory signature</strong> — clean scan on white paper or digital signature image<br>
+            📎 <strong>Brand guidelines / letterhead / brochure</strong> — PDF or image<br>
+            📎 <strong>Any existing promotional banners or flex board designs</strong>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Reference websites you like (aesthetics) <span class="tag-high">HIGH</span></label>
+          <input type="text" id="f_ref1" placeholder="Reference website 1 — e.g. https://example.com" />
+          <input type="text" id="f_ref2" placeholder="Reference website 2" style="margin-top:6px" />
+          <input type="text" id="f_ref3" placeholder="Reference website 3 (optional)" style="margin-top:6px" />
+          <div class="form-hint">Not necessarily education sites. Helps understand your visual taste before design begins.</div>
+        </div>
+
         <div class="form-divider">Domain &amp; Hosting Access</div>
+        <div class="form-group">
+          <label class="form-label">Current app (co.sheldon.siupl) — do you have admin access? <span class="tag-high">HIGH</span></label>
+          <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+            <label class="radio-opt"><input type="radio" name="current_app_access" value="yes" /> Yes — have login / admin credentials</label>
+            <label class="radio-opt"><input type="radio" name="current_app_access" value="no" /> No — no access (fine, we are replacing it entirely)</label>
+          </div>
+          <div class="form-hint">If you have credentials, share them via email to subhajitsarkar0708@gmail.com — not in this form.</div>
+        </div>
         <div class="form-group">
           <label class="form-label">Domain registrar <span class="tag-crit">CRITICAL</span> <span class="req">*</span></label>
           <div class="radio-group">
@@ -1458,8 +1502,61 @@
             </div>
           </div>
         </div>
+        <div class="form-divider">WordPress &amp; Database Access (Q11–14)</div>
+        <div style="background:var(--amber-bg);border:1px solid #FDE68A;border-radius:10px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:12.5px;color:var(--navy);line-height:1.7;">
+          <strong style="font-family:var(--font-h);">⚠️ Do NOT enter passwords here.</strong> Only confirm availability below. Email all actual login credentials &amp; database passwords securely to <strong style="color:var(--orange)">subhajitsarkar0708@gmail.com</strong>.
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">richgyan.com — WordPress admin username <span class="tag-crit">CRITICAL</span></label>
+            <input type="text" id="f_wp_user_com" placeholder="WordPress admin username only (no password)" autocomplete="off" />
+            <div class="form-hint">Password + MySQL credentials to be sent via email.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">richgyan.in — WordPress admin username <span class="tag-crit">CRITICAL</span></label>
+            <input type="text" id="f_wp_user_in" placeholder="WordPress admin username only (no password)" autocomplete="off" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">richgyan.com — MySQL DB available? <span class="tag-crit">CRITICAL</span></label>
+            <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+              <label class="radio-opt"><input type="radio" name="mysql_com" value="yes" /> Yes — can access via cPanel → MySQL Databases</label>
+              <label class="radio-opt"><input type="radio" name="mysql_com" value="no" /> No / not sure</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">richgyan.in — MySQL DB available? <span class="tag-crit">CRITICAL</span></label>
+            <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+              <label class="radio-opt"><input type="radio" name="mysql_in" value="yes" /> Yes — can access via cPanel → MySQL Databases</label>
+              <label class="radio-opt"><input type="radio" name="mysql_in" value="no" /> No / not sure</label>
+            </div>
+          </div>
+        </div>
         <div class="form-group">
-          <label class="form-label">Google Search Console access <span class="tag-crit">CRITICAL</span></label>
+          <label class="form-label">Credentials acknowledgement <span class="tag-crit">CRITICAL</span> <span class="req">*</span></label>
+          <label class="check-opt" style="font-size:13px;padding:10px 12px;background:var(--green-bg);border-radius:8px;border:1px solid #A7F3D0;">
+            <input type="checkbox" name="creds_ack" value="confirmed" required />
+            &nbsp;I understand I must email all login credentials, API keys, DB passwords, and access tokens to <strong>subhajitsarkar0708@gmail.com</strong> — not enter them in this form.
+          </label>
+        </div>
+
+        <div class="form-divider">Google Access (Q16–17)</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Google account email owning Search Console <span class="tag-crit">CRITICAL</span></label>
+            <input type="email" id="f_gsc_email" placeholder="e.g. richgyanindia@gmail.com" />
+            <div class="form-hint">Developer needs to be added as a full user on this property to snapshot keyword rankings before migration.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Google account email owning Analytics <span class="tag-high">HIGH</span></label>
+            <input type="email" id="f_ga_email" placeholder="e.g. richgyanindia@gmail.com (may be same account)" />
+            <div class="form-hint">Add subhajitsarkar0708@gmail.com as a full user on both Search Console and Analytics.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Google Search Console access status <span class="tag-crit">CRITICAL</span></label>
           <div class="radio-group">
             <label class="radio-opt"><input type="radio" name="gsc" value="yes_add" /> Will add developer as owner</label>
             <label class="radio-opt"><input type="radio" name="gsc" value="yes_myself" /> Will manage myself</label>
@@ -1484,6 +1581,65 @@
         <div class="form-group">
           <label class="form-label">About Us text <span class="tag-high">HIGH</span></label>
           <textarea id="f_about" placeholder="Founding year, mission, origin story, key milestones. Also used in Google Knowledge Panel schema markup." style="min-height:80px"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Awards, affiliations &amp; recognition <span class="tag-high">HIGH</span></label>
+          <textarea id="f_awards" placeholder="e.g. NSDC affiliation, state govt recognition, ISO certification, media coverage links — list anything worth highlighting on the website" style="min-height:70px"></textarea>
+          <div class="form-hint">Used in the About Us section, trust-building banners, and Google Knowledge Panel schema markup.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Student testimonials <span class="tag-high">HIGH</span></label>
+          <textarea id="f_testimonials" style="min-height:80px" placeholder="For each testimonial — Student Name | Course Completed | What they want to say&#10;&#10;e.g. Priya Das | Diploma in CCA | I got placed in 3 months of completing the course...&#10;&#10;Need at least 5 testimonials. Photos optional — email to subhajitsarkar0708@gmail.com with the same student name."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Franchise onboarding process — step by step <span class="tag-crit">CRITICAL</span></label>
+          <textarea id="f_franchise_process" placeholder="Describe the current process a new franchise partner goes through, step by step — even rough notes are fine.&#10;e.g. 1. Inquiry form, 2. Demo call, 3. Agreement signing, 4. Fee payment, 5. Training, 6. Center launch..." style="min-height:80px"></textarea>
+          <div class="form-hint">This drives the franchise onboarding flow in the backend and the franchise partner landing page.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Commonly asked FAQs (students &amp; franchise inquiries) <span class="tag-high">HIGH</span></label>
+          <textarea id="f_faq" placeholder="List each FAQ with its answer — at least 10 questions:&#10;&#10;Q: How long does it take to get a certificate?&#10;A: Within 30 days of course completion&#10;&#10;Q: Can I enroll online?&#10;A: ..." style="min-height:100px"></textarea>
+          <div class="form-hint">Populates the FAQ section on the website. Reduces support load and improves SEO.</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Privacy Policy &amp; T&amp;C documents <span class="tag-high">HIGH</span></label>
+            <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+              <label class="radio-opt"><input type="radio" name="privacy_policy" value="yes_send" /> Yes — will email the documents</label>
+              <label class="radio-opt"><input type="radio" name="privacy_policy" value="no_draft" /> No — developer to draft (DPDP Act 2023)</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Student database export <span class="tag-high">HIGH</span></label>
+            <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+              <label class="radio-opt"><input type="radio" name="student_db_export" value="yes" /> Can export — will email CSV</label>
+              <label class="radio-opt"><input type="radio" name="student_db_export" value="partial" /> Partial export only</label>
+              <label class="radio-opt"><input type="radio" name="student_db_export" value="no" /> No access to export</label>
+            </div>
+            <div class="form-hint">Export from WooCommerce → Orders → Export, or LMS → Students → Export. Email CSV to subhajitsarkar0708@gmail.com.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Student data fields currently stored <span class="tag-high">HIGH</span></label>
+          <div class="check-group">
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="name" checked /> Name</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="phone" checked /> Phone</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="email" checked /> Email</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="address" /> Address</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="dob" /> Date of birth</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="aadhaar" /> Aadhaar number</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="course" checked /> Course enrolled</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="enroll_date" checked /> Enrollment date</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="center" checked /> Center name</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="fee_status" checked /> Fee status</label>
+            <label class="check-opt"><input type="checkbox" name="student_fields" value="photo" /> Photo</label>
+          </div>
         </div>
 
         <div class="form-divider">Certificate System Rules</div>
@@ -1531,6 +1687,17 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label class="form-label">Grade format on certificates <span class="tag-crit">CRITICAL</span> <span class="req">*</span></label>
+          <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+            <label class="radio-opt"><input type="radio" name="grade_format" value="grade_only" /> Grade only (A, B, C, D)</label>
+            <label class="radio-opt"><input type="radio" name="grade_format" value="percent_only" /> Percentage only (e.g. 78%)</label>
+            <label class="radio-opt"><input type="radio" name="grade_format" value="both" /> Both grade + percentage</label>
+            <label class="radio-opt"><input type="radio" name="grade_format" value="none" /> No grade / marks shown</label>
+          </div>
+          <div class="form-hint">Grade thresholds (e.g. A = 80–100%) will be configured based on this decision.</div>
+        </div>
+
         <div class="form-divider">Franchise Data</div>
         <div class="form-group">
           <label class="form-label">Active franchise centers list <span class="tag-crit">CRITICAL</span> <span class="req">*</span></label>
@@ -1558,6 +1725,13 @@
         <div class="priority-badge pb-amber">🟡 Week 2 — needed before backend build begins</div>
         <div class="step-heading">Technical Access &amp; Third-Party Services</div>
         <div class="step-desc">All these accounts must be created by the client — not the developer. Creating them under the developer's personal accounts = you lose access if the project ends.</div>
+        <div style="background:var(--amber-bg);border:1px solid #FDE68A;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:13px;color:var(--navy);line-height:1.7;">
+          <strong style="font-family:var(--font-h);display:flex;align-items:center;gap:7px;margin-bottom:5px;"><i class="ti ti-lock" style="font-size:15px;color:var(--amber)"></i> ⚠️ Never enter passwords or API keys in this form</strong>
+          <span style="color:var(--t2)">
+            Once you create or confirm any of the accounts below, send all login credentials, API keys, and access tokens securely via email to <strong style="color:var(--orange)">subhajitsarkar0708@gmail.com</strong>.<br>
+            This includes: cPanel / SSH logins, WordPress admin credentials, MySQL database credentials, Razorpay Key ID + Secret, Twilio Account SID + Auth Token, domain registrar login, Google Search Console access, Cloudflare login, and AWS credentials.
+          </span>
+        </div>
 
         <div class="form-divider">Payment &amp; Communication</div>
         <div class="form-row">
@@ -1631,6 +1805,16 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="form-label">AWS account for backups <span class="tag-high">HIGH</span></label>
+          <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+            <label class="radio-opt"><input type="radio" name="aws_account" value="yes" /> Created — S3 bucket ready</label>
+            <label class="radio-opt"><input type="radio" name="aws_account" value="yes_no_s3" /> AWS account exists, S3 not configured yet</label>
+            <label class="radio-opt"><input type="radio" name="aws_account" value="no" /> Not created yet (~Rs.200–500/mo for S3 backups)</label>
+            <label class="radio-opt"><input type="radio" name="aws_account" value="prefer_r2" /> Prefer Cloudflare R2 instead (cheaper)</label>
+          </div>
+          <div class="form-hint">Daily encrypted backup storage. Once created, share Access Key ID + Secret via email (not this form).</div>
+        </div>
+        <div class="form-group">
           <label class="form-label">WordPress database export <span class="tag-high">HIGH</span></label>
           <div class="radio-group">
             <label class="radio-opt"><input type="radio" name="wp_db" value="yes" /> Can export full DB dump</label>
@@ -1664,6 +1848,25 @@
           <div class="radio-group">
             <label class="radio-opt"><input type="radio" name="dual_role" value="yes" /> Yes — dual role</label>
             <label class="radio-opt"><input type="radio" name="dual_role" value="no" /> No — separate accounts</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Number of HQ admin accounts needed <span class="tag-high">HIGH</span></label>
+            <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+              <label class="radio-opt"><input type="radio" name="admin_count" value="1" /> 1 — owner only</label>
+              <label class="radio-opt"><input type="radio" name="admin_count" value="2-3" /> 2–3 staff members</label>
+              <label class="radio-opt"><input type="radio" name="admin_count" value="4+" /> 4 or more</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Should franchise owners see each other's data? <span class="tag-crit">CRITICAL</span></label>
+            <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+              <label class="radio-opt"><input type="radio" name="franchise_isolation" value="isolated" /> Strictly isolated — each center sees only their own data</label>
+              <label class="radio-opt"><input type="radio" name="franchise_isolation" value="shared_stats" /> Can see anonymized network-wide stats only</label>
+              <label class="radio-opt"><input type="radio" name="franchise_isolation" value="open" /> Open — can see all centers' data</label>
+            </div>
           </div>
         </div>
 
@@ -1721,14 +1924,37 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Notification events to send (SMS/WhatsApp) <span class="tag-high">HIGH</span></label>
+          <label class="form-label">Q52 — Events that should trigger an <strong>SMS</strong> to the student <span class="tag-high">HIGH</span></label>
           <div class="check-group">
-            <label class="check-opt"><input type="checkbox" name="notif_events" value="enrollment" /> Enrollment confirmation</label>
-            <label class="check-opt"><input type="checkbox" name="notif_events" value="exam_result" /> Exam result</label>
-            <label class="check-opt"><input type="checkbox" name="notif_events" value="fee_due" /> Fee due reminder</label>
-            <label class="check-opt"><input type="checkbox" name="notif_events" value="cert_issued" /> Certificate issued</label>
-            <label class="check-opt"><input type="checkbox" name="notif_events" value="login_otp" checked /> Login OTP</label>
-            <label class="check-opt"><input type="checkbox" name="notif_events" value="class_reminder" /> Class reminder</label>
+            <label class="check-opt"><input type="checkbox" name="sms_events" value="enrollment" /> Enrollment confirmation</label>
+            <label class="check-opt"><input type="checkbox" name="sms_events" value="exam_date" /> Exam date reminder</label>
+            <label class="check-opt"><input type="checkbox" name="sms_events" value="exam_result" /> Result announcement</label>
+            <label class="check-opt"><input type="checkbox" name="sms_events" value="fee_due" /> Fee due reminder</label>
+            <label class="check-opt"><input type="checkbox" name="sms_events" value="cert_issued" /> Certificate issued</label>
+            <label class="check-opt"><input type="checkbox" name="sms_events" value="login_otp" checked /> Login OTP</label>
+            <label class="check-opt"><input type="checkbox" name="sms_events" value="class_reminder" /> Class reminder</label>
+          </div>
+          <div class="form-hint">Each SMS costs per message via Twilio. Login OTP is mandatory and cannot be disabled.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Q53 — Events that should trigger a <strong>WhatsApp message</strong> to the student <span class="tag-high">HIGH</span></label>
+          <div class="check-group">
+            <label class="check-opt"><input type="checkbox" name="wa_events" value="enrollment" /> Enrollment confirmation</label>
+            <label class="check-opt"><input type="checkbox" name="wa_events" value="exam_date" /> Exam date reminder</label>
+            <label class="check-opt"><input type="checkbox" name="wa_events" value="exam_result" /> Result announcement</label>
+            <label class="check-opt"><input type="checkbox" name="wa_events" value="fee_due" /> Fee due reminder</label>
+            <label class="check-opt"><input type="checkbox" name="wa_events" value="cert_issued" /> Certificate issued</label>
+            <label class="check-opt"><input type="checkbox" name="wa_events" value="class_reminder" /> Class reminder</label>
+            <label class="check-opt"><input type="checkbox" name="wa_events" value="none" /> None — SMS only</label>
+          </div>
+          <div class="form-hint">Each unique WhatsApp event template requires separate Meta/Twilio approval (24–48 hrs). Decide carefully — each approval is a separate process.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Should parents also receive notifications? <span class="tag-high">HIGH</span></label>
+          <div class="radio-group" style="flex-direction:column;align-items:flex-start">
+            <label class="radio-opt"><input type="radio" name="parent_notif" value="no" /> No — student only</label>
+            <label class="radio-opt"><input type="radio" name="parent_notif" value="yes_optional" /> Yes — optional parent number field at enrollment</label>
+            <label class="radio-opt"><input type="radio" name="parent_notif" value="yes_mandatory" /> Yes — parent number mandatory at enrollment</label>
           </div>
         </div>
         <div class="form-group">
@@ -1840,6 +2066,42 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="form-label">App supported languages <span class="tag-high">HIGH</span></label>
+          <div class="check-group">
+            <label class="check-opt"><input type="checkbox" name="app_lang" value="english" checked /> English</label>
+            <label class="check-opt"><input type="checkbox" name="app_lang" value="hindi" /> Hindi</label>
+            <label class="check-opt"><input type="checkbox" name="app_lang" value="assamese" /> Assamese</label>
+          </div>
+          <div class="form-hint">Each additional language requires separate UI strings and Twilio WhatsApp templates — adds 2–4 days per language.</div>
+        </div>
+
+        <div class="form-divider">Photos &amp; Media</div>
+        <div style="background:var(--blue-bg);border:1px solid #BFDBFE;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:13px;color:var(--navy);line-height:1.7;">
+          <strong style="font-family:var(--font-h);display:flex;align-items:center;gap:7px;margin-bottom:6px;"><i class="ti ti-mail" style="font-size:15px;color:var(--blue)"></i> Email all media to: <span style="color:var(--orange)">subhajitsarkar0708@gmail.com</span></strong>
+          <span style="color:var(--t2)">
+            📸 <strong>Batch &amp; center photos</strong> — WhatsApp quality is fine, send as many as you have<br>
+            🎬 <strong>Video footage</strong> — any mobile phone clips of centers or events<br>
+            🖼️ <strong>Promotional banners / flex board designs</strong> — helps understand visual identity
+          </span>
+        </div>
+
+        <div class="form-divider">Project Timeline</div>
+        <div class="form-group">
+          <label class="form-label">Target go-live date <span class="tag-high">HIGH</span></label>
+          <input type="text" id="f_golive_date" placeholder="e.g. September 1, 2026 — or a specific event like annual convocation" />
+          <div class="form-hint">I will work backwards from this date to set milestones. Be realistic — the rebuild is 16–20 weeks of active work.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Peak season to avoid during DNS cutover <span class="tag-high">HIGH</span></label>
+          <input type="text" id="f_peak_season" placeholder="e.g. July–August enrollment rush, December result season — any date range where downtime would be catastrophic" />
+          <div class="form-hint">DNS cutover (switching richgyan.com to the new server) is a ~30-minute risk window. We will not schedule this during your busiest weeks.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Planned events in the next 6 months <span class="tag-high">HIGH</span></label>
+          <textarea id="f_events" placeholder="e.g. Annual franchise meet — October 2026, State convocation — November 2026&#10;List any events where the new website / app needs to be ready and showcased." style="min-height:60px"></textarea>
+        </div>
+
+        <div class="form-group">
           <label class="form-label">Additional notes or requirements</label>
           <textarea id="f_notes" placeholder="Any specific requirements, constraints, or questions not covered above..." style="min-height:80px"></textarea>
         </div>
@@ -1890,6 +2152,8 @@
     </div>
 
   </div><!-- /modal -->
+  <!-- Honeypot anti-spam field (hidden from humans, bots fill it in) -->
+  <input type="text" id="_honey" name="_honey" style="display:none !important" tabindex="-1" autocomplete="off" />
 </div><!-- /overlay -->
 
 <script>
@@ -1980,6 +2244,7 @@ function showStep(n) {
 }
 
 function nextStep() {
+  if (!validateStep(currentStep)) return;   // block advance if current step has errors
   if (currentStep < TOTAL_STEPS) { currentStep++; showStep(currentStep); }
 }
 function prevStep() {
@@ -1996,16 +2261,150 @@ function getChecked(name) {
   return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(el => el.value).join(', ') || '—';
 }
 
-/* ── EMAIL SEND (FormSubmit.co) ──── */
+/* ── VALIDATION ──────────────────── */
+const STEP_RULES = {
+  1: [
+    { id: 'f_company',       msg: 'Company name is required' },
+    { id: 'f_gstin',         msg: 'GSTIN is required for GST-compliant invoicing' },
+    { id: 'f_address',       msg: 'Full registered address is required' },
+    { id: 'f_contact_name',  msg: 'Contact name is required' },
+    { id: 'f_contact_phone', msg: 'Contact phone is required' },
+    { id: 'f_contact_email', msg: 'Contact email is required' },
+    { id: 'f_signatory_name',msg: 'Authorized signatory name is required' },
+  ],
+  2: [
+    { radio: 'registrar',    msg: 'Please select your domain registrar' },
+    { radio: 'logo_avail',   msg: 'Please confirm logo availability' },
+    { radio: 'seal_avail',   msg: 'Please confirm institute seal availability' },
+    { checkbox: 'creds_ack', msg: 'Please confirm you will email credentials — do not skip this' },
+  ],
+  3: [
+    { id: 'f_courses',       msg: 'Course list is required' },
+    { id: 'f_cert_format',   msg: 'Certificate number format is required' },
+    { id: 'f_centers',       msg: 'Franchise center list is required' },
+    { id: 'f_franchise_fee', msg: 'Franchise fee & revenue share is required' },
+    { radio: 'cert_expiry',  msg: 'Please confirm whether certificates expire' },
+    { radio: 'cert_issuer',  msg: 'Please confirm who can issue certificates' },
+    { radio: 'grade_format', msg: 'Please select the grade format for certificates' },
+  ],
+  4: [
+    { radio: 'razorpay',     msg: 'Please confirm Razorpay account status' },
+    { radio: 'twilio',       msg: 'Please confirm Twilio account status' },
+    { radio: 'server',       msg: 'Please select a production server preference' },
+  ],
+  5: [
+    { radio: 'installments',       msg: 'Please confirm installment plan policy' },
+    { radio: 'gst_rate',           msg: 'GST rate on course fees is required — confirm with your CA' },
+    { radio: 'franchise_isolation',msg: 'Please confirm franchise data isolation rule' },
+  ],
+  6: [
+    { id: 'f_app_name',      msg: 'App store name is required' },
+    { radio: 'video_courses',msg: 'Please confirm whether courses are video-based' },
+    { radio: 'start_timeline',msg: 'Please select a preferred start timeline' },
+  ],
+};
+
+function showFieldError(el, msg) {
+  el.style.borderColor = 'var(--red)';
+  el.style.boxShadow = '0 0 0 3px rgba(192,57,43,.15)';
+  let err = el.parentElement.querySelector('.field-err');
+  if (!err) {
+    err = document.createElement('div');
+    err.className = 'field-err';
+    err.style.cssText = 'font-size:11.5px;color:var(--red);margin-top:4px;display:flex;align-items:center;gap:4px;';
+    el.parentElement.appendChild(err);
+  }
+  err.innerHTML = '<i class="ti ti-alert-circle" style="font-size:13px"></i> ' + msg;
+}
+
+function clearFieldError(el) {
+  el.style.borderColor = '';
+  el.style.boxShadow = '';
+  const err = el.parentElement.querySelector('.field-err');
+  if (err) err.remove();
+}
+
+function validateStep(step) {
+  const rules = STEP_RULES[step] || [];
+  let firstBad = null;
+
+  for (const rule of rules) {
+    if (rule.id) {
+      const el = document.getElementById(rule.id);
+      if (!el) continue;
+      if (!el.value.trim()) {
+        showFieldError(el, rule.msg);
+        if (!firstBad) firstBad = el;
+      } else {
+        clearFieldError(el);
+      }
+    } else if (rule.radio) {
+      const checked = document.querySelector(`input[name="${rule.radio}"]:checked`);
+      const group = document.querySelector(`input[name="${rule.radio}"]`)?.closest('.form-group');
+      if (!checked && group) {
+        let err = group.querySelector('.field-err');
+        if (!err) {
+          err = document.createElement('div');
+          err.className = 'field-err';
+          err.style.cssText = 'font-size:11.5px;color:var(--red);margin-top:4px;display:flex;align-items:center;gap:4px;';
+          group.appendChild(err);
+        }
+        err.innerHTML = '<i class="ti ti-alert-circle" style="font-size:13px"></i> ' + rule.msg;
+        if (!firstBad) firstBad = group;
+      } else if (group) {
+        const err = group.querySelector('.field-err');
+        if (err) err.remove();
+      }
+    } else if (rule.checkbox) {
+      const checked = document.querySelector(`input[name="${rule.checkbox}"]:checked`);
+      const box = document.querySelector(`input[name="${rule.checkbox}"]`);
+      if (!checked && box) {
+        const group = box.closest('.form-group');
+        let err = group ? group.querySelector('.field-err') : null;
+        if (group && !err) {
+          err = document.createElement('div');
+          err.className = 'field-err';
+          err.style.cssText = 'font-size:11.5px;color:var(--red);margin-top:6px;display:flex;align-items:center;gap:4px;';
+          group.appendChild(err);
+        }
+        if (err) err.innerHTML = '<i class="ti ti-alert-circle" style="font-size:13px"></i> ' + rule.msg;
+        if (!firstBad) firstBad = box;
+      } else if (box) {
+        const group = box.closest('.form-group');
+        const err = group?.querySelector('.field-err');
+        if (err) err.remove();
+      }
+    }
+  }
+
+  if (firstBad) {
+    firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return false;
+  }
+  return true;
+}
+
+/* ── EMAIL SEND (Formspree + timeout) ──── */
 async function sendToEmail(subject, body) {
+  // Honeypot check — if bot filled the hidden field, silently abort
+  const honey = document.getElementById('_honey');
+  if (honey && honey.value) {
+    console.warn('Honeypot triggered — submission blocked');
+    return false;
+  }
+
+  const TIMEOUT_MS = 15000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+
   try {
-    const res = await fetch('https://formsubmit.co/ajax/' + DEVELOPER_EMAIL, {
+    const res = await fetch('https://formspree.io/f/xredrvvn', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      signal: controller.signal,
       body: JSON.stringify({
-        _subject: subject,
-        _captcha: 'false',
-        _template: 'box',
+        subject: subject,
+        _gotcha: '',                          // extra honeypot field for Formspree
         company: getVal('f_company') || 'Rich Gyan India',
         contact_name: getVal('f_contact_name'),
         contact_email: getVal('f_contact_email'),
@@ -2013,16 +2412,34 @@ async function sendToEmail(subject, body) {
         intake_summary: body
       })
     });
+    clearTimeout(timer);
     const data = await res.json();
-    return data.success === true || data.success === 'true';
+    return data.ok === true;
   } catch (e) {
-    console.error('Email send error:', e);
+    clearTimeout(timer);
+    if (e.name === 'AbortError') {
+      console.error('Formspree timed out after', TIMEOUT_MS, 'ms');
+    } else {
+      console.error('Formspree send error:', e);
+    }
     return false;
   }
 }
 
 /* ── FORM SUBMIT ─────────────────── */
 async function submitForm() {
+  // Run final validation on all 6 steps before submitting
+  let allValid = true;
+  for (let s = 1; s <= TOTAL_STEPS; s++) {
+    if (!validateStep(s)) {
+      // Jump to the first failing step so the client can see the error
+      if (allValid) { currentStep = s; showStep(s); }
+      allValid = false;
+      break;
+    }
+  }
+  if (!allValid) return;
+
   const btn = document.getElementById('btnSubmit');
   btn.disabled = true;
   btn.innerHTML = '<i class="ti ti-loader"></i> Sending...';
@@ -2030,8 +2447,12 @@ async function submitForm() {
   // Build summary
   const roles        = getChecked('roles');
   const certFields   = getChecked('cert_fields');
-  const notifEvents  = getChecked('notif_events');
+  const smsEvents    = getChecked('sms_events');
+  const waEvents     = getChecked('wa_events');
   const notifLangs   = getChecked('notif_lang');
+
+  const appLangs      = getChecked('app_lang');
+  const studentFields = getChecked('student_fields');
 
   const summary = `
 ══════════════════════════════════════════════
@@ -2046,6 +2467,8 @@ CIN                 : ${getVal('f_cin') || '—'}
 GSTIN               : ${getVal('f_gstin') || '—'}
 PAN                 : ${getVal('f_pan') || '—'}
 Registered Address  : ${getVal('f_address') || '—'}
+Authorized Signatory: ${getVal('f_signatory_name') || '—'} (${getVal('f_signatory_desig') || 'designation not provided'})
+Director Google Acct: ${getVal('f_director_email') || '—'}
 Contact Person      : ${getVal('f_contact_name') || '—'}
 Contact Phone       : ${getVal('f_contact_phone') || '—'}
 Contact Email       : ${getVal('f_contact_email') || '—'}
@@ -2064,18 +2487,34 @@ Signature Image     : ${getRadio('sig_avail')}
 Domain Registrar    : ${getRadio('registrar')}${getVal('f_registrar_other') ? ' ('+getVal('f_registrar_other')+')' : ''}
 Hosting .com        : ${getRadio('hosting_com')}
 Hosting .in         : ${getRadio('hosting_in')}
+WP Admin .com       : ${getVal('f_wp_user_com') || '— (to be sent via email)'}
+WP Admin .in        : ${getVal('f_wp_user_in') || '— (to be sent via email)'}
+MySQL .com          : ${getRadio('mysql_com')}
+MySQL .in           : ${getRadio('mysql_in')}
+GSC Email           : ${getVal('f_gsc_email') || '—'}
+GA Email            : ${getVal('f_ga_email') || '—'}
 Google Search Console: ${getRadio('gsc')}
+Creds Ack           : ${getChecked('creds_ack') === 'confirmed' ? '✅ Confirmed' : '⚠️ Not confirmed'}
+Current App Access  : ${getRadio('current_app_access')}
 
 ▌ 3. CONTENT & DATA
 ━━━━━━━━━━━━━━━━━━━
 Certificate Format  : ${getVal('f_cert_format') || '—'}
 Student ID Format   : ${getVal('f_student_id_format') || '—'}
 Certificate Fields  : ${certFields}
+Grade Format        : ${getRadio('grade_format')}
 Certs Expire        : ${getRadio('cert_expiry')}${getVal('f_expiry_detail') ? ' — '+getVal('f_expiry_detail') : ''}
 Cert Issuer         : ${getRadio('cert_issuer')}
 Old Cert Records    : ${getRadio('old_certs')}
-Franchise Centers   : [see attached list]
+Franchise Centers   : [see attached list in f_centers]
 Franchise Fee/Share : ${getVal('f_franchise_fee') || '—'}
+Franchise Process   : ${getVal('f_franchise_process') ? '[Provided — '+getVal('f_franchise_process').substring(0,80)+'...]' : 'Not provided'}
+Awards/Affiliations : ${getVal('f_awards') ? '[Provided — '+getVal('f_awards').substring(0,80)+'...]' : 'Not provided'}
+Testimonials        : ${getVal('f_testimonials') ? '[Provided — '+getVal('f_testimonials').substring(0,60)+'...]' : 'Not provided'}
+FAQ List            : ${getVal('f_faq') ? '[Provided — '+getVal('f_faq').substring(0,60)+'...]' : 'Not provided'}
+Privacy Policy/T&C  : ${getRadio('privacy_policy')}
+Student DB Export   : ${getRadio('student_db_export')}
+Student Fields Kept : ${studentFields}
 Course List         : ${getVal('f_courses') ? '[Provided — '+getVal('f_courses').substring(0,80)+'...]' : 'Not provided'}
 About Us Text       : ${getVal('f_about') ? '[Provided — '+getVal('f_about').substring(0,80)+'...]' : 'Not provided'}
 
@@ -2085,6 +2524,7 @@ Razorpay            : ${getRadio('razorpay')}
 Twilio              : ${getRadio('twilio')}
 Production Server   : ${getRadio('server')}
 Backup Storage      : ${getRadio('backup')}
+AWS Account         : ${getRadio('aws_account')}
 SMTP / Email        : ${getRadio('smtp')}
 Google Analytics    : ${getRadio('ga')}
 Cloudflare          : ${getRadio('cloudflare')}
@@ -2094,18 +2534,23 @@ WordPress DB Export : ${getRadio('wp_db')}
 ━━━━━━━━━━━━━━━━━━━
 User Roles          : ${roles}
 Dual Role (owner+student): ${getRadio('dual_role')}
+Admin Accounts (HQ) : ${getRadio('admin_count')}
+Franchise Data      : ${getRadio('franchise_isolation')}
 Installment Plans   : ${getRadio('installments')}${getVal('f_install_detail') ? '\n  Details: '+getVal('f_install_detail') : ''}
 Late Fee            : ${getRadio('late_fee')}${getVal('f_late_fee_detail') ? ' — '+getVal('f_late_fee_detail') : ''}
 GST Rate            : ${getRadio('gst_rate')}%${getVal('f_gst_other_rate') ? ' ('+getVal('f_gst_other_rate')+')' : ''}
 Refund Policy       : ${getVal('f_refund') || '—'}
 Territory Radius    : ${getVal('f_territory_km') || '7'} km exclusivity
 Territory Conflict  : ${getRadio('territory_conflict')}
-Notification Events : ${notifEvents}
+SMS Events          : ${smsEvents}
+WhatsApp Events     : ${waEvents}
 Notification Langs  : ${notifLangs}
+Parent Notifications: ${getRadio('parent_notif')}
 
 ▌ 6. MOBILE APP & KICKOFF
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 App Name            : ${getVal('f_app_name') || '—'}
+App Languages       : ${appLangs}
 App Icon            : ${getRadio('app_icon')}
 Play Store Account  : ${getRadio('play_store')}
 Apple Dev Account   : ${getRadio('apple_dev')}
@@ -2113,7 +2558,14 @@ Video Courses       : ${getRadio('video_courses')}
 Video Hosting       : ${getRadio('video_hosting')}
 Offline Download    : ${getRadio('offline_download')}
 Max Video/Course    : ${getVal('f_video_size') || 'Not specified'}
+Reference Sites     : ${[getVal('f_ref1'),getVal('f_ref2'),getVal('f_ref3')].filter(Boolean).join(' | ') || '—'}
+
+▌ 7. TIMELINE & LAUNCH
+━━━━━━━━━━━━━━━━━━━━━━
 Start Timeline      : ${getRadio('start_timeline')}
+Target Go-Live Date : ${getVal('f_golive_date') || '—'}
+Peak Season Avoid   : ${getVal('f_peak_season') || '—'}
+Planned Events      : ${getVal('f_events') || 'None listed'}
 Budget Approach     : ${getRadio('budget_approach')}
 Additional Notes    : ${getVal('f_notes') || 'None'}
 
@@ -2135,7 +2587,7 @@ Additional Notes    : ${getVal('f_notes') || 'None'}
   const waText = `Rich Gyan India — Project Intake\n\n${summary.substring(0, 1400)}...\n\n(Full summary attached in email)`;
   document.getElementById('waLink').href = `https://wa.me/?text=${encodeURIComponent(waText)}`;
 
-  // Send email via FormSubmit.co
+  // Send email via Formspree
   const emailStatus = document.getElementById('emailStatus');
   const subject = `Rich Gyan India — Intake from ${getVal('f_company') || 'Client'} · ${getVal('f_contact_name') || ''}`;
   const sent = await sendToEmail(subject, summary);
