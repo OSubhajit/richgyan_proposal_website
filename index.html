@@ -1223,7 +1223,7 @@
     <div class="intake-head">
       <div class="label"><i class="ti ti-clipboard-list"></i> Client onboarding checklist</div>
       <h2>Ready to begin? Fill the intake form.</h2>
-      <p>All 48 data points are required to deliver exactly what this proposal promises — from legal details for App Store submissions, to certificate numbering formats, to territory exclusivity rules. Zero guesswork, zero rework.</p>
+      <p>All 95 data points are required to deliver exactly what this proposal promises — from legal details for App Store submissions, to certificate numbering formats, to territory exclusivity rules. Zero guesswork, zero rework.</p>
     </div>
     <div class="intake-phases">
       <div class="intake-phase">
@@ -1250,7 +1250,7 @@
     <div class="intake-body">
       <div class="intake-cta-row">
         <div class="intake-note">
-          <strong>The form takes about 20–25 minutes.</strong> It covers all 8 areas from our intake reference guide — business &amp; legal, branding, content &amp; data, access credentials, business rules, and mobile app specifics. You'll get a formatted summary when done, and it will be automatically sent to the developer.
+          <strong>The form takes about 20–25 minutes.</strong> It covers all 6 sections — business &amp; legal, branding, content &amp; data, access credentials, business rules, and mobile app specifics. You'll get a formatted summary when done, and it will be automatically sent to the developer.
         </div>
         <button class="btn-open-intake" onclick="openModal()">
           <i class="ti ti-forms"></i> Open Intake Form
@@ -1287,7 +1287,7 @@
 
     <div class="modal-head">
       <div class="modal-title">Rich Gyan India — Client Intake Form</div>
-      <div class="modal-sub">48 data points · 6 sections · ~20 minutes · auto-emailed to developer on submit</div>
+      <div class="modal-sub">95 data points · 6 sections · ~25 minutes · submitted to developer on submit</div>
       <button class="modal-close" onclick="closeModal()"><i class="ti ti-x"></i></button>
     </div>
 
@@ -2547,7 +2547,7 @@ WhatsApp Events     : ${waEvents}
 Notification Langs  : ${notifLangs}
 Parent Notifications: ${getRadio('parent_notif')}
 
-▌ 6. MOBILE APP & KICKOFF
+▌ 6. MOBILE APP, KICKOFF & TIMELINE
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 App Name            : ${getVal('f_app_name') || '—'}
 App Languages       : ${appLangs}
@@ -2560,7 +2560,7 @@ Offline Download    : ${getRadio('offline_download')}
 Max Video/Course    : ${getVal('f_video_size') || 'Not specified'}
 Reference Sites     : ${[getVal('f_ref1'),getVal('f_ref2'),getVal('f_ref3')].filter(Boolean).join(' | ') || '—'}
 
-▌ 7. TIMELINE & LAUNCH
+
 ━━━━━━━━━━━━━━━━━━━━━━
 Start Timeline      : ${getRadio('start_timeline')}
 Target Go-Live Date : ${getVal('f_golive_date') || '—'}
